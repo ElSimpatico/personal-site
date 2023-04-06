@@ -1,0 +1,15 @@
+@mixin define-variables {
+    --color-text-button-primary: #232326;
+    --color-background-button-primary-default: #4FA0FF;
+    --color-background-button-primary-hover: #75B6FF;
+    
+    --color-text-button-secondary: #232326;
+    --color-background-button-secondary-default: #FF63DD;
+    --color-background-button-secondary-hover: #FF94E8;
+    
+    --color-text-button-tertiary: #4FA0FF;
+    --color-outline-button-tertiary-default: #4FA0FF;
+    --color-outline-button-tertiary-hover: #75B6FF;
+
+    --opacity-button-disabled: 0.5;
+}

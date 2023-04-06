@@ -1,0 +1,22 @@
+{
+  "name": "personal-site",
+  "version": "0.0.0",
+  "description": "Personal site",
+  "main": "index.js",
+  "repository": "https://github.com/ElSimpatico/personal-site.git",
+  "author": "Aaron Velasco Lopez <tiquismiquisss@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@stencil-community/eslint-plugin": "^0.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-plugin-react": "^7.32.2",
+    "lerna": "^3.22.1",
+    "typescript": "^5.0.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true
+}

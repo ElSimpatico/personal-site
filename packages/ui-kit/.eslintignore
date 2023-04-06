@@ -1,0 +1,14 @@
+**/node_modules/
+**/dist/
+**/loader/
+**/www/
+**/coverage/
+**/lib/
+**/vendors/
+**/jest.config.js
+**/tsconfig*
+**/.eslintrc.json
+**/webpack
+**/reports
+**/rollup
+stencil.config.ts
