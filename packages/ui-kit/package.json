@@ -26,7 +26,8 @@
     "generate": "stencil generate",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint src/**/*{.ts,.tsx} --fix --format stylish --color"
+    "lint": "eslint src/**/*{.ts,.tsx} --fix --format stylish --color",
+    "generate:iconNames": "node ./scripts/generate-icon-names.js"
   },
   "dependencies": {
     "@stencil/core": "^3.0.0"

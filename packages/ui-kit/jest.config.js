@@ -9,5 +9,6 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/jest-assets-module.js',
 
     '@utils(.*)': '<rootDir>/src/utils$1',
+    '@core(.*)': '<rootDir>/src/core$1',
   },
 };

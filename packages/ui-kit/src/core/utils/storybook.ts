@@ -17,9 +17,9 @@ export function printStoryTemplate(tag: string, args?: any, children?: string): 
 
 export function createStyles(id: string, cssRules: string): void {
   let style = document.querySelector(`#${id}`);
-  if (style) {
+  if (!style) {
     style = document.createElement('style');
-    style.id = 'button-stories';
+    style.id = id;
     style.textContent = cssRules;
     document.head.appendChild(style);
   }

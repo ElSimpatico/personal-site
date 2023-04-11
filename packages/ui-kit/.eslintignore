@@ -12,3 +12,4 @@
 **/reports
 **/rollup
 stencil.config.ts
+scripts/*.js

@@ -1,12 +1,13 @@
 @use './dark/theme.scss' as darkTheme;
 @use './light/theme.scss' as lightTheme;
+@use './common-theme';
 
-:root {   
-    @include darkTheme.define-variables;
+:root {
+  @include common-theme.define-variables();
 
-    [class*=theme-light] {
-        
-        @include lightTheme.define-variables;
+  @include darkTheme.define-variables;
 
-    }
+  [class*='theme-light'] {
+    @include lightTheme.define-variables;
+  }
 }

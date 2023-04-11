@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariantType } from "./components/atoms/button/types";
+import { IconNames } from "@core/types";
 export { ButtonVariantType } from "./components/atoms/button/types";
+export { IconNames } from "@core/types";
 export namespace Components {
     interface UiButton {
         /**
@@ -30,6 +32,12 @@ export namespace Components {
          */
         "variant"?: ButtonVariantType;
     }
+    interface UiIcon {
+        /**
+          * Specifies the icon name to display
+         */
+        "name": IconNames;
+    }
 }
 declare global {
     interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
@@ -38,8 +46,15 @@ declare global {
         prototype: HTMLUiButtonElement;
         new (): HTMLUiButtonElement;
     };
+    interface HTMLUiIconElement extends Components.UiIcon, HTMLStencilElement {
+    }
+    var HTMLUiIconElement: {
+        prototype: HTMLUiIconElement;
+        new (): HTMLUiIconElement;
+    };
     interface HTMLElementTagNameMap {
         "ui-button": HTMLUiButtonElement;
+        "ui-icon": HTMLUiIconElement;
     }
 }
 declare namespace LocalJSX {
@@ -65,8 +80,15 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariantType;
     }
+    interface UiIcon {
+        /**
+          * Specifies the icon name to display
+         */
+        "name": IconNames;
+    }
     interface IntrinsicElements {
         "ui-button": UiButton;
+        "ui-icon": UiIcon;
     }
 }
 export { LocalJSX as JSX };
@@ -74,6 +96,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
+            "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
         }
     }
 }
