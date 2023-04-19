@@ -1,1 +1,13 @@
+$breakpoints: (
+    S: 360px,
+    M: 764px,
+    L: 1024px,
+    XL: 1440px,
+);
 
+$zIndexLevels: (
+    modal: 9000,
+    overlay: 8000,
+    dropdown: 7000,
+    header: 6000,
+);

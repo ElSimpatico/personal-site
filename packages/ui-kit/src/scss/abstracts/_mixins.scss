@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use './variables';
+
+@mixin _getMinBreakpoint($breakpoint: 'S') {
+    @media (min-width: map.get(variables.$breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @include _getMinBreakpoint('M') {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @include _getMinBreakpoint('L') {
+        @content;
+    }
+}
+
+@mixin desktopHD() {
+    @include _getMinBreakpoint('XL') {
+        @content;
+    }
+}
+
+@function zIndex($level) {
+    @return map.get(variables.$zIndexLevels, $level);
+}

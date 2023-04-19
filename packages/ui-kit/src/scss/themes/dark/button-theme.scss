@@ -1,17 +1,17 @@
 @mixin define-variables {
-  --color-text-button-primary: #232326;
-  --color-background-button-primary-default: #4fa0ff;
-  --color-background-button-primary-hover: #75b6ff;
+    --color-text-button-primary: #232326;
+    --color-background-button-primary-default: var(--color-brand-primary);
+    --color-background-button-primary-hover: #75b6ff;
 
-  --color-text-button-secondary: #232326;
-  --color-background-button-secondary-default: #ff63dd;
-  --color-background-button-secondary-hover: #ff94e8;
+    --color-text-button-secondary: #232326;
+    --color-background-button-secondary-default: var(--color-brand-secondary);
+    --color-background-button-secondary-hover: #ff94e8;
 
-  --color-text-button-tertiary: #4fa0ff;
-  --color-outline-button-tertiary-default: #4fa0ff;
-  --color-outline-button-tertiary-hover: #75b6ff;
+    --color-text-button-tertiary: var(--color-brand-primary);
+    --color-outline-button-tertiary-default: var(--color-brand-primary);
+    --color-outline-button-tertiary-hover: #75b6ff;
 
-  --opacity-button-disabled: 0.5;
+    --opacity-button-disabled: 0.5;
 
-  --spacing-padding-button: var(--spacing-x1) var(--spacing-x2);
+    --spacing-padding-button: var(--spacing-x1) var(--spacing-x2);
 }
