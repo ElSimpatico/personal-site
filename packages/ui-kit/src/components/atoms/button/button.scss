@@ -1,57 +1,59 @@
 :host {
-  display: inline-block;
-  border-radius: 0.4rem;
-  .ps-button {
-    display: inherit;
-    background-color: transparent;
-    border: none;
-    padding: var(--spacing-padding-button);
-    cursor: pointer;
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: inherit;
-    line-height: inherit;
-    font-family: inherit;
-  }
+    display: inline-block;
+    border-radius: var(--radius-x2);
+    .ps-button {
+        display: inline-flex;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding: var(--spacing-padding-button);
+        cursor: pointer;
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: inherit;
+        line-height: inherit;
+        font-family: inherit;
+        align-items: center;
+    }
 }
 
 :host(.primary) {
-  --color-text: var(--color-text-button-primary);
-  background-color: var(--color-background-button-primary-default);
-  &:hover {
-    background-color: var(--color-background-button-primary-hover);
-  }
-  &.disabled {
+    --color-text: var(--color-text-button-primary);
     background-color: var(--color-background-button-primary-default);
-  }
+    &:hover {
+        background-color: var(--color-background-button-primary-hover);
+    }
+    &.disabled {
+        background-color: var(--color-background-button-primary-default);
+    }
 }
 
 :host(.secondary) {
-  --color-text: var(--color-text-button-secondary);
-  background-color: var(--color-background-button-secondary-default);
-  &:hover {
-    background-color: var(--color-background-button-secondary-hover);
-  }
-  &.disabled {
+    --color-text: var(--color-text-button-secondary);
     background-color: var(--color-background-button-secondary-default);
-  }
+    &:hover {
+        background-color: var(--color-background-button-secondary-hover);
+    }
+    &.disabled {
+        background-color: var(--color-background-button-secondary-default);
+    }
 }
 
 :host(.tertiary) {
-  --color-text: var(--color-text-button-tertiary);
-  background-color: transparent;
-  outline: 0.2rem solid var(--color-outline-button-tertiary-default);
-  &:hover {
-    outline-color: var(--color-outline-button-tertiary-hover);
-  }
-  &.disabled {
-    outline-color: var(--color-outline-button-tertiary-default);
-  }
+    --color-text: var(--color-text-button-tertiary);
+    background-color: transparent;
+    outline: 0.2rem solid var(--color-outline-button-tertiary-default);
+    &:hover {
+        outline-color: var(--color-outline-button-tertiary-hover);
+    }
+    &.disabled {
+        outline-color: var(--color-outline-button-tertiary-default);
+    }
 }
 
 :host(.disabled) {
-  opacity: var(--opacity-button-disabled);
-  .ps-button {
-    cursor: default;
-  }
+    opacity: var(--opacity-button-disabled);
+    .ps-button {
+        cursor: default;
+    }
 }

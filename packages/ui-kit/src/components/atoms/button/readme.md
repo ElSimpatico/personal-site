@@ -16,6 +16,26 @@
 | `variant`        | `variant`         | Specifies the button variant                                                        | `"primary" \| "secondary" \| "tertiary"` | `'primary'` |
 
 
+## Events
+
+| Event   | Description                        | Type                |
+| ------- | ---------------------------------- | ------------------- |
+| `press` | Emitted when the button is pressed | `CustomEvent<void>` |
+
+
+## Dependencies
+
+### Used by
+
+ - [ui-header](../../molecules/header)
+
+### Graph
+```mermaid
+graph TD;
+  ui-header --> ui-button
+  style ui-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
