@@ -1,0 +1,33 @@
+{
+    "name": "@personal-site/ui-kit-react",
+    "version": "0.0.0",
+    "description": "React component library",
+    "author": "Aaron Velasco Lopez <tiquismiquisss@gmail.com>",
+    "homepage": "https://github.com/ElSimpatico/personal-site#readme",
+    "license": "ISC",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/types/index.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib",
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ElSimpatico/personal-site.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "build": "yarn tsc -p ."
+    },
+    "bugs": {
+        "url": "https://github.com/ElSimpatico/personal-site/issues"
+    },
+    "dependencies": {
+        "@personal-site/ui-kit": "*"
+    }
+}
