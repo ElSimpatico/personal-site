@@ -23,7 +23,7 @@
         "build": "yarn clean && stencil build",
         "build:watch": "yarn clean && stencil build --watch",
         "test": "stencil test --spec --coverage",
-        "generate": "stencil generate",
+        "generate": "plop --plopfile ./scripts/plopfile.js",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "lint": "eslint src/**/*{.ts,.tsx} --fix --format stylish --color",
@@ -50,6 +50,7 @@
         "babel-loader": "^8.3.0",
         "jest": "^27.5.1",
         "jest-cli": "^27.5.1",
+        "plop": "^3.1.2",
         "puppeteer": "^19.5.2",
         "storybook-addon-themes": "^6.1.0"
     },

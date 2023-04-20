@@ -1,0 +1,28 @@
+import {
+    Component,
+    Prop,
+    h,
+    JSX,
+    ComponentInterface,
+    Host,
+} from '@stencil/core';
+
+@Component({
+    tag: 'ui-{{dashCase name}}',
+    styleUrl: '{{dashCase name}}.scss',
+    shadow: false,
+    scoped: true,
+})
+export class {{pascalCase name}} implements ComponentInterface {
+    /** Property description */
+    @Prop() readonly myProp: string;
+
+    render(): JSX.Element {
+        return (
+            <Host>
+                <div>Add your html</div>
+            </Host>
+        );
+    }
+}
+

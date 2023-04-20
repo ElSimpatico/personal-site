@@ -1,0 +1,38 @@
+import { printStoryTemplate, createStyles } from '@core/utils/storybook';
+
+import mdx from './{{dashCase name}}.mdx';
+
+export default {
+  title: 'Components/{{titleCase type}}/{{titleCase name}}',
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
+};
+
+const TagName = 'ui-{{dashCase name}}';
+
+createStyles(
+  'component-stories',
+  `
+    .my-story-class span {
+        border: 1px dashed;
+    }
+`,
+);
+
+const defaultArgs = {
+    myProp: 'my-prop'
+};
+
+const defaultArgTypes = {};
+
+
+const Template = (args): string => printStoryTemplate(TagName, { ...args, class: 'my-story-class' }, '<span>Slot text</span>');
+
+export const {{pascalCase name}} = Template.bind({});
+
+{{pascalCase name}}.args = { ...defaultArgs };
+{{pascalCase name}}.argTypes = { ...defaultArgTypes };
+
