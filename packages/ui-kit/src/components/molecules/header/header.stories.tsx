@@ -40,6 +40,9 @@ Header.args = {
     accesibleLabelMenuButton: 'Menu button',
     dataLinks: jsonStringifyFormatted(links),
     dataLinksSocial: jsonStringifyFormatted(linksSocial),
+    darkMode: true,
+    darkModeLabel: 'Dark Mode',
+    darkModeAccessibleLabel: 'Switch theme',
 };
 
 Header.argTypes = {};

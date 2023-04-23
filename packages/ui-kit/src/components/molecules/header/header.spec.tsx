@@ -2,6 +2,8 @@ import { h } from '@stencil/core';
 import { SpecPage, newSpecPage } from '@stencil/core/testing';
 import { Header } from './header';
 import { links, linksSocial } from './mocks';
+import { BreakpointSize } from '@core/utils';
+import { resizeWindow } from '@core/utils/testing';
 
 let page: SpecPage;
 let header: HTMLUiHeaderElement;
@@ -40,4 +42,23 @@ it('should render icon link list', async () => {
     expect(
         header.querySelector('nav ul[class="navigation-icon-list"]'),
     ).toBeTruthy();
+});
+
+it('should enable dark mode', async () => {
+    const toggle = header.querySelector('ui-toggle[identifier="theme-switch"]');
+    const event = new CustomEvent('changeDetailEvent', {
+        composed: true,
+        bubbles: true,
+    });
+    toggle.dispatchEvent(event);
+    page.waitForChanges();
+    expect(document.body.classList.contains('theme-dark')).toBeTruthy();
+});
+
+it('should render menu button in mobile viewport', async () => {
+    resizeWindow(BreakpointSize.S, 800);
+    await page.waitForChanges();
+    const menuButton = header.querySelector('.menu-button');
+
+    expect(menuButton).toBeTruthy();
 });

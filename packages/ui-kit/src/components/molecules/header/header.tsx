@@ -34,6 +34,15 @@ export class Header implements ComponentInterface {
     /** Specifies the navigation links as JSON string of `LinkModel` */
     @Prop() readonly dataLinksSocial?: string;
 
+    /** Specifies if the dark mode is enabled */
+    @Prop({ mutable: true }) darkMode?: boolean = false;
+
+    /** Specifies the dark mode label*/
+    @Prop() readonly darkModeLabel?: string;
+
+    /** Specifies the alternative text for the dark mode label*/
+    @Prop() readonly darkModeAccessibleLabel?: string;
+
     @State() breakpoint: BreakpointSizeType;
 
     @State() expanded: boolean;
@@ -69,6 +78,17 @@ export class Header implements ComponentInterface {
         this.expanded = false;
     };
 
+    private onChangeTheme = (): void => {
+        const isLightMode = document.body.classList.contains('theme-light');
+        this.enableDarkMode(isLightMode);
+        this.darkMode = !this.darkMode;
+    };
+
+    private enableDarkMode = (enable: boolean): void => {
+        document.body.classList.remove(enable ? 'theme-light' : 'theme-dark');
+        document.body.classList.add(enable ? 'theme-dark' : 'theme-light');
+    };
+
     private getSocialIconName = (id: string): IconNames | null => {
         switch (id) {
             case 'github':
@@ -84,6 +104,7 @@ export class Header implements ComponentInterface {
         this.onResize();
         this.dataLinksWatch();
         this.dataLinksSocialWatch();
+        this.enableDarkMode(this.darkMode);
     }
 
     private renderLinkList = (): JSX.Element => {
@@ -96,7 +117,7 @@ export class Header implements ComponentInterface {
                                 <li key={`main-nav-link_${index}`}>
                                     <ui-link
                                         url={link.href}
-                                        accesibleLabel={link.accesibleLabel}
+                                        accessibleLabel={link.accesibleLabel}
                                         smooth
                                         onPress={this.onPressLinkHandler}
                                     >
@@ -122,7 +143,7 @@ export class Header implements ComponentInterface {
                                         >
                                             <ui-link
                                                 url={link.href}
-                                                accesibleLabel={
+                                                accessibleLabel={
                                                     link.accesibleLabel
                                                 }
                                             >
@@ -137,6 +158,14 @@ export class Header implements ComponentInterface {
                         )}
                     </ul>
                 )}
+                <ui-toggle
+                    identifier="theme-switch"
+                    onChangeDetailEvent={this.onChangeTheme}
+                    checked={this.darkMode}
+                    accessibleLabel={this.darkModeAccessibleLabel}
+                >
+                    {this.darkModeLabel}
+                </ui-toggle>
             </nav>
         );
     };
@@ -154,6 +183,7 @@ export class Header implements ComponentInterface {
                                 ></img>
                             </div>
                         )}
+
                         {this.breakpoint !== 'S' &&
                             this.breakpoint !== 'M' &&
                             this.renderLinkList()}
@@ -162,7 +192,7 @@ export class Header implements ComponentInterface {
                             <ui-button
                                 class="menu-button"
                                 variant="tertiary"
-                                accesibleLabel={this.accesibleLabelMenu}
+                                accessibleLabel={this.accesibleLabelMenu}
                                 onPress={this.onPressHandler}
                             >
                                 <ui-icon name={IconNames.menu}></ui-icon>
