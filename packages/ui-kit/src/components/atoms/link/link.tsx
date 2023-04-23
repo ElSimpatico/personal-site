@@ -22,7 +22,7 @@ export class Link implements ComponentInterface {
     @Prop() readonly target?: string;
 
     /** Specifies the alternative text of the link */
-    @Prop() readonly accesibleLabel?: string;
+    @Prop() readonly accessibleLabel?: string;
 
     /** Specifies if the smooth effect should be enabled when url start with `#` (link to section page) */
     @Prop() readonly smooth?: boolean = false;
@@ -47,7 +47,7 @@ export class Link implements ComponentInterface {
                     class={'ps-link'}
                     href={this.url}
                     target={this.target}
-                    aria-label={this.accesibleLabel}
+                    aria-label={this.accessibleLabel}
                     onClick={this.onClickHandler}
                 >
                     <slot></slot>
