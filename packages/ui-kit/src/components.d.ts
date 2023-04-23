@@ -6,15 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariantType } from "./components/atoms/button/types";
-import { IconNames } from "@core/types";
+import { CheckDetailEvent, IconNames } from "@core/types";
 export { ButtonVariantType } from "./components/atoms/button/types";
-export { IconNames } from "@core/types";
+export { CheckDetailEvent, IconNames } from "@core/types";
 export namespace Components {
     interface UiButton {
         /**
           * Specifies the alternative text for screen readers
          */
-        "accesibleLabel"?: string;
+        "accessibleLabel"?: string;
         /**
           * Specifies if button is disabled
          */
@@ -37,6 +37,18 @@ export namespace Components {
           * Specifies the alternative text of menu button
          */
         "accesibleLabelMenu"?: string;
+        /**
+          * Specifies if the dark mode is enabled
+         */
+        "darkMode"?: boolean;
+        /**
+          * Specifies the alternative text for the dark mode label
+         */
+        "darkModeAccessibleLabel"?: string;
+        /**
+          * Specifies the dark mode label
+         */
+        "darkModeLabel"?: string;
         /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */
@@ -64,7 +76,7 @@ export namespace Components {
         /**
           * Specifies the alternative text of the link
          */
-        "accesibleLabel"?: string;
+        "accessibleLabel"?: string;
         /**
           * Specifies if the smooth effect should be enabled when url start with `#` (link to section page)
          */
@@ -78,6 +90,32 @@ export namespace Components {
          */
         "url"?: string;
     }
+    interface UiToggle {
+        /**
+          * Specifies an alternative text for toggle
+         */
+        "accessibleLabel"?: string;
+        /**
+          * Specifies if input is checked
+         */
+        "checked"?: boolean;
+        /**
+          * Specifies if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Property description
+         */
+        "identifier"?: string;
+        /**
+          * Specifies the input name
+         */
+        "name"?: string;
+        /**
+          * Specifies the input value
+         */
+        "value"?: string;
+    }
 }
 export interface UiButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -86,6 +124,10 @@ export interface UiButtonCustomEvent<T> extends CustomEvent<T> {
 export interface UiLinkCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUiLinkElement;
+}
+export interface UiToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiToggleElement;
 }
 declare global {
     interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
@@ -112,11 +154,18 @@ declare global {
         prototype: HTMLUiLinkElement;
         new (): HTMLUiLinkElement;
     };
+    interface HTMLUiToggleElement extends Components.UiToggle, HTMLStencilElement {
+    }
+    var HTMLUiToggleElement: {
+        prototype: HTMLUiToggleElement;
+        new (): HTMLUiToggleElement;
+    };
     interface HTMLElementTagNameMap {
         "ui-button": HTMLUiButtonElement;
         "ui-header": HTMLUiHeaderElement;
         "ui-icon": HTMLUiIconElement;
         "ui-link": HTMLUiLinkElement;
+        "ui-toggle": HTMLUiToggleElement;
     }
 }
 declare namespace LocalJSX {
@@ -124,7 +173,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the alternative text for screen readers
          */
-        "accesibleLabel"?: string;
+        "accessibleLabel"?: string;
         /**
           * Specifies if button is disabled
          */
@@ -152,6 +201,18 @@ declare namespace LocalJSX {
          */
         "accesibleLabelMenu"?: string;
         /**
+          * Specifies if the dark mode is enabled
+         */
+        "darkMode"?: boolean;
+        /**
+          * Specifies the alternative text for the dark mode label
+         */
+        "darkModeAccessibleLabel"?: string;
+        /**
+          * Specifies the dark mode label
+         */
+        "darkModeLabel"?: string;
+        /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */
         "dataLinks"?: string;
@@ -178,7 +239,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the alternative text of the link
          */
-        "accesibleLabel"?: string;
+        "accessibleLabel"?: string;
         /**
           * Emitted when the link is pressed
          */
@@ -196,11 +257,42 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface UiToggle {
+        /**
+          * Specifies an alternative text for toggle
+         */
+        "accessibleLabel"?: string;
+        /**
+          * Specifies if input is checked
+         */
+        "checked"?: boolean;
+        /**
+          * Specifies if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Property description
+         */
+        "identifier"?: string;
+        /**
+          * Specifies the input name
+         */
+        "name"?: string;
+        /**
+          * Emitted when the toggle change
+         */
+        "onChangeDetailEvent"?: (event: UiToggleCustomEvent<CheckDetailEvent>) => void;
+        /**
+          * Specifies the input value
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "ui-button": UiButton;
         "ui-header": UiHeader;
         "ui-icon": UiIcon;
         "ui-link": UiLink;
+        "ui-toggle": UiToggle;
     }
 }
 export { LocalJSX as JSX };
@@ -211,6 +303,7 @@ declare module "@stencil/core" {
             "ui-header": LocalJSX.UiHeader & JSXBase.HTMLAttributes<HTMLUiHeaderElement>;
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
             "ui-link": LocalJSX.UiLink & JSXBase.HTMLAttributes<HTMLUiLinkElement>;
+            "ui-toggle": LocalJSX.UiToggle & JSXBase.HTMLAttributes<HTMLUiToggleElement>;
         }
     }
 }
