@@ -19,7 +19,7 @@ import { ClassType } from '@core/types';
 })
 export class Button implements ComponentInterface {
     /** Specifies the alternative text for screen readers */
-    @Prop() readonly accesibleLabel?: string;
+    @Prop() readonly accessibleLabel?: string;
 
     /** Specifies if button is disabled */
     @Prop() readonly disabled?: boolean = false;
@@ -57,7 +57,7 @@ export class Button implements ComponentInterface {
                         class="ps-button"
                         href={this.linkHref}
                         target={this.linkTarget}
-                        aria-label={this.accesibleLabel}
+                        aria-label={this.accessibleLabel}
                         onClick={this.onClickHandler}
                     >
                         <slot></slot>
@@ -66,7 +66,7 @@ export class Button implements ComponentInterface {
                     <button
                         class="ps-button"
                         disabled={this.disabled}
-                        aria-label={this.accesibleLabel}
+                        aria-label={this.accessibleLabel}
                         onClick={this.onClickHandler}
                     >
                         <slot />

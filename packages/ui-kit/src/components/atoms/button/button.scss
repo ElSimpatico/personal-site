@@ -1,6 +1,7 @@
 :host {
     display: inline-block;
     border-radius: var(--radius-x2);
+
     .ps-button {
         display: inline-flex;
         height: 100%;
@@ -14,6 +15,12 @@
         line-height: inherit;
         font-family: inherit;
         align-items: center;
+        border-radius: var(--radius-x2);
+
+        &:focus {
+            outline: 0.2rem solid var(--color-brand-primary);
+            outline-offset: 0.2rem;
+        }
     }
 }
 
