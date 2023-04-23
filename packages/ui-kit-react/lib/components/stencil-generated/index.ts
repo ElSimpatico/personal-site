@@ -11,3 +11,4 @@ export const UiButton = /*@__PURE__*/createReactComponent<JSX.UiButton, HTMLUiBu
 export const UiHeader = /*@__PURE__*/createReactComponent<JSX.UiHeader, HTMLUiHeaderElement>('ui-header');
 export const UiIcon = /*@__PURE__*/createReactComponent<JSX.UiIcon, HTMLUiIconElement>('ui-icon');
 export const UiLink = /*@__PURE__*/createReactComponent<JSX.UiLink, HTMLUiLinkElement>('ui-link');
+export const UiToggle = /*@__PURE__*/createReactComponent<JSX.UiToggle, HTMLUiToggleElement>('ui-toggle');
