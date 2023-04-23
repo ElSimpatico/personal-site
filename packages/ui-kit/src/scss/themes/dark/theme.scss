@@ -1,8 +1,10 @@
 @use './button-theme.scss';
+@use './toggle-theme.scss';
 
 @mixin define-variables {
-    --theme-color-background-body: #0E0E0E;
-    --theme-color-text-body: #ffffff;
-    
+    --theme-color-background-body: var(--color-black);
+    --theme-color-text-body: var(--color-white);
+
     @include button-theme.define-variables;
+    @include toggle-theme.define-variables;
 }

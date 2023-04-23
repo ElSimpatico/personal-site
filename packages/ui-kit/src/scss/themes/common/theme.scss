@@ -1,6 +1,16 @@
+@use './button-theme.scss';
+@use './toggle-theme.scss';
+
 @mixin define-variables {
     --color-brand-primary: #4fa0ff;
     --color-brand-secondary: #ff63dd;
+
+    --color-pure-black: #000000;
+    --color-black: #0e0e0e;
+    --color-dark-grey: #232326;
+    --color-grey: #424345;
+    --color-light-grey: #bebec3;
+    --color-white: #ffffff;
 
     --spacing-x1: 0.8rem;
     --spacing-x2: 1.6rem;
@@ -15,4 +25,7 @@
 
     --radius-x1: 0.2rem;
     --radius-x2: 0.4rem;
+
+    @include button-theme.define-variables;
+    @include toggle-theme.define-variables;
 }
