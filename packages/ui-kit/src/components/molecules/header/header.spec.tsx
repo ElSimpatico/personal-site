@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { SpecPage, newSpecPage } from '@stencil/core/testing';
 import { Header } from './header';
-import { links, linksSocial } from './mocks';
+import { linksSocial } from './mocks';
 import { BreakpointSize } from '@core/utils';
 import { resizeWindow } from '@core/utils/testing';
 
@@ -26,14 +26,6 @@ it('should render logo', async () => {
     header.logoUrl = 'url';
     await page.waitForChanges();
     expect(header.querySelector('div[class="header-logo"]')).toBeTruthy();
-});
-
-it('should render link list', async () => {
-    header.dataLinks = JSON.stringify(links);
-    await page.waitForChanges();
-    expect(
-        header.querySelector('nav ul[class="navigation-list"]'),
-    ).toBeTruthy();
 });
 
 it('should render icon link list', async () => {

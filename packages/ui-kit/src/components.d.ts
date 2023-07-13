@@ -52,10 +52,6 @@ export namespace Components {
         /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */
-        "dataLinks"?: string;
-        /**
-          * Specifies the navigation links as JSON string of `LinkModel`
-         */
         "dataLinksSocial"?: string;
         /**
           * Specifies the alternative text of logo image
@@ -212,10 +208,6 @@ declare namespace LocalJSX {
           * Specifies the dark mode label
          */
         "darkModeLabel"?: string;
-        /**
-          * Specifies the navigation links as JSON string of `LinkModel`
-         */
-        "dataLinks"?: string;
         /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */

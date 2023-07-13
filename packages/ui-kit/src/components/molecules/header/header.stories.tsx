@@ -1,9 +1,9 @@
 import {
     printStoryTemplate,
     jsonStringifyFormatted,
+    createStyles,
 } from '@core/utils/storybook';
-import { LinkModel } from '@core/types';
-import { links, linksSocial } from './mocks';
+import { linksSocial } from './mocks';
 
 import mdx from './header.mdx';
 
@@ -16,20 +16,28 @@ export default {
     },
 };
 
+createStyles(
+    'header-stories',
+    `
+      .story-header .external-link {
+          border: 0.1rem dashed var(--theme-color-text-body);
+          color: var(--theme-color-text-body);
+      }
+  `,
+);
+
 const TagName = 'ui-header';
 
-const Template = (args): string => `
-<div>
-    ${printStoryTemplate(TagName, { ...args })}
-    ${links
-        .map((link: LinkModel) => {
-            return `
-            <div id=${link.href.replace('#', '')} style="height: 50rem">${
-                link.label
-            }</div>`;
-        })
-        .join('\n')}
-</div>`;
+const children = `
+    <a slot="main-link" class="external-link" href="#link1" aria-label="Go to page 1">Slot link</a>
+    <a slot="main-link" class="external-link" href="#link1" aria-label="Go to page 1">Slot link</a>
+    <a slot="main-link" class="external-link" href="#link1" aria-label="Go to page 1">Slot link</a>
+    <a slot="main-link" class="external-link" href="#link1" aria-label="Go to page 1">Slot link</a>
+    <a slot="main-link" class="external-link" href="#link1" aria-label="Go to page 1">Slot link</a>
+`;
+
+const Template = (args): string =>
+    printStoryTemplate(TagName, { ...args, class: 'story-header' }, children);
 
 export const Header = Template.bind({});
 
@@ -38,7 +46,6 @@ Header.args = {
         'https://react-portfolio-v1.netlify.app/static/media/logo.0bad282e338a9971ebc84d7e1098fd15.svg',
     logoAlt: 'logo',
     accesibleLabelMenuButton: 'Menu button',
-    dataLinks: jsonStringifyFormatted(links),
     dataLinksSocial: jsonStringifyFormatted(linksSocial),
     darkMode: true,
     darkModeLabel: 'Dark Mode',

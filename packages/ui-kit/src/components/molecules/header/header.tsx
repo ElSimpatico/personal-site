@@ -9,7 +9,12 @@ import {
     Listen,
     Watch,
 } from '@stencil/core';
-import { BreakpointSizeType, IconNames, LinkModel } from '@core/types';
+import {
+    BreakpointSizeType,
+    ClassType,
+    IconNames,
+    LinkModel,
+} from '@core/types';
 import { getBreakpoint } from '@core/utils';
 
 @Component({
@@ -29,9 +34,6 @@ export class Header implements ComponentInterface {
     @Prop() readonly accesibleLabelMenu?: string;
 
     /** Specifies the navigation links as JSON string of `LinkModel` */
-    @Prop() readonly dataLinks?: string;
-
-    /** Specifies the navigation links as JSON string of `LinkModel` */
     @Prop() readonly dataLinksSocial?: string;
 
     /** Specifies if the dark mode is enabled */
@@ -47,8 +49,6 @@ export class Header implements ComponentInterface {
 
     @State() expanded: boolean;
 
-    @State() links: LinkModel[] = [];
-
     @State() linksSocial: LinkModel[] = [];
 
     @Listen('resize', { target: 'window' })
@@ -59,10 +59,6 @@ export class Header implements ComponentInterface {
         }
     }
 
-    @Watch('dataLinks')
-    private dataLinksWatch(): void {
-        this.links = this.dataLinks ? JSON.parse(this.dataLinks) : [];
-    }
     @Watch('dataLinksSocial')
     private dataLinksSocialWatch(): void {
         this.linksSocial = this.dataLinksSocial
@@ -72,10 +68,6 @@ export class Header implements ComponentInterface {
 
     private onPressHandler = (): void => {
         this.expanded = !this.expanded;
-    };
-
-    private onPressLinkHandler = (): void => {
-        this.expanded = false;
     };
 
     private onChangeTheme = (): void => {
@@ -102,7 +94,6 @@ export class Header implements ComponentInterface {
 
     componentWillLoad(): void {
         this.onResize();
-        this.dataLinksWatch();
         this.dataLinksSocialWatch();
         this.enableDarkMode(this.darkMode);
     }
@@ -110,24 +101,10 @@ export class Header implements ComponentInterface {
     private renderLinkList = (): JSX.Element => {
         return (
             <nav class="ps-header-main-navigation">
-                {this.links.length > 0 && (
-                    <ul class="navigation-list">
-                        {this.links.map((link: LinkModel, index: number) => {
-                            return (
-                                <li key={`main-nav-link_${index}`}>
-                                    <ui-link
-                                        url={link.href}
-                                        accessibleLabel={link.accesibleLabel}
-                                        smooth
-                                        onPress={this.onPressLinkHandler}
-                                    >
-                                        {link.label}
-                                    </ui-link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                )}
+                <div class="navigation-list">
+                    <slot name="main-link"></slot>
+                </div>
+
                 {this.linksSocial.length > 0 && (
                     <ul class="navigation-icon-list">
                         {this.linksSocial.map(
@@ -170,9 +147,15 @@ export class Header implements ComponentInterface {
         );
     };
 
+    private classNames = (): ClassType => {
+        return {
+            expanded: !!this.expanded,
+        };
+    };
+
     render(): JSX.Element {
         return (
-            <Host>
+            <Host class={this.classNames()}>
                 <header class="ps-header">
                     <div class="header-content">
                         {this.logoUrl && (
@@ -184,9 +167,6 @@ export class Header implements ComponentInterface {
                             </div>
                         )}
 
-                        {this.breakpoint !== 'S' &&
-                            this.breakpoint !== 'M' &&
-                            this.renderLinkList()}
                         {(this.breakpoint === 'S' ||
                             this.breakpoint === 'M') && (
                             <ui-button
@@ -198,10 +178,9 @@ export class Header implements ComponentInterface {
                                 <ui-icon name={IconNames.menu}></ui-icon>
                             </ui-button>
                         )}
+
+                        {this.renderLinkList()}
                     </div>
-                    {this.expanded &&
-                        (this.breakpoint === 'S' || this.breakpoint === 'M') &&
-                        this.renderLinkList()}
                 </header>
             </Host>
         );
