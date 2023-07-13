@@ -20,8 +20,7 @@
                 }
             }
             &:focus + .toggle-box {
-                outline: 0.2rem solid var(--color-brand-primary);
-                outline-offset: 0.2rem;
+                @include focusable();
             }
             &:disabled + .toggle-box {
                 cursor: default;

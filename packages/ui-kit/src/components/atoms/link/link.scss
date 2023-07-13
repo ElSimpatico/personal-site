@@ -1,6 +1,7 @@
 :host {
     display: inline;
     .ps-link {
+        display: inline-block;
         color: inherit;
         font-size: inherit;
         line-height: inherit;
@@ -8,9 +9,5 @@
         text-decoration: none;
         padding: 0 0 calc(var(--spacing-x1) / 2) 0;
         border-bottom: 0.2rem solid;
-        &:focus {
-            outline: 0.2rem solid var(--color-brand-primary);
-            outline-offset: 0.2rem;
-        }
     }
 }

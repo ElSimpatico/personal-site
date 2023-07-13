@@ -39,3 +39,8 @@
     margin: -1px;
     padding: 0;
 }
+
+@mixin focusable() {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #ffffff, 0 0 0 0.4rem #000000;
+}

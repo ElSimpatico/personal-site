@@ -4,9 +4,7 @@
 
     .ps-button {
         display: inline-flex;
-        height: 100%;
-        background-color: transparent;
-        border: none;
+        border: 0.1rem solid transparent;
         padding: var(--spacing-padding-button);
         cursor: pointer;
         color: var(--color-text);
@@ -16,45 +14,60 @@
         font-family: inherit;
         align-items: center;
         border-radius: var(--radius-x2);
-
-        &:focus {
-            outline: 0.2rem solid var(--color-brand-primary);
-            outline-offset: 0.2rem;
-        }
     }
 }
 
 :host(.primary) {
     --color-text: var(--color-text-button-primary);
-    background-color: var(--color-background-button-primary-default);
+    .ps-button {
+        background-color: var(--color-background-button-primary-default);
+        border-color: var(--color-background-button-primary-default);
+    }
     &:hover {
-        background-color: var(--color-background-button-primary-hover);
+        .ps-button {
+            background-color: var(--color-background-button-primary-hover);
+        }
     }
     &.disabled {
-        background-color: var(--color-background-button-primary-default);
+        .ps-button {
+            background-color: var(--color-background-button-primary-default);
+        }
     }
 }
 
 :host(.secondary) {
     --color-text: var(--color-text-button-secondary);
-    background-color: var(--color-background-button-secondary-default);
+    .ps-button {
+        background-color: var(--color-background-button-secondary-default);
+        border-color: var(--color-background-button-secondary-default);
+    }
     &:hover {
-        background-color: var(--color-background-button-secondary-hover);
+        .ps-button {
+            background-color: var(--color-background-button-secondary-hover);
+        }
     }
     &.disabled {
-        background-color: var(--color-background-button-secondary-default);
+        .ps-button {
+            background-color: var(--color-background-button-secondary-default);
+        }
     }
 }
 
 :host(.tertiary) {
     --color-text: var(--color-text-button-tertiary);
-    background-color: transparent;
-    outline: 0.2rem solid var(--color-outline-button-tertiary-default);
+    .ps-button {
+        background-color: transparent;
+        border-color: var(--color-border-button-tertiary-default);
+    }
     &:hover {
-        outline-color: var(--color-outline-button-tertiary-hover);
+        .ps-button {
+            border-color: var(--color-border-button-tertiary-hover);
+        }
     }
     &.disabled {
-        outline-color: var(--color-outline-button-tertiary-default);
+        .ps-button {
+            border-color: var(--color-border-button-tertiary-default);
+        }
     }
 }
 
