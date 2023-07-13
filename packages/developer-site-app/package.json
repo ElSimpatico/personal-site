@@ -6,15 +6,19 @@
     "author": "Aaron Velasco Lopez",
     "license": "MIT",
     "dependencies": {
+        "@apollo/client": "^3.7.17",
         "@personal-site/ui-kit-react": "*",
+        "graphql": "^16.7.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.14.1"
     },
     "devDependencies": {
         "@swc/core": "^1.3.46",
         "@types/react": "^18.0.33",
         "@types/react-dom": "^18.0.11",
         "css-loader": "^6.7.3",
+        "dotenv-webpack": "^8.0.1",
         "html-webpack-plugin": "^5.5.0",
         "sass": "^1.62.0",
         "sass-loader": "^13.2.2",

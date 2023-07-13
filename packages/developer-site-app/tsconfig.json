@@ -4,6 +4,11 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "jsx": "react",
-        "lib": ["DOM"]
+        "lib": ["DOM"],
+        "baseUrl": "./",
+        "paths": {
+            "@components": ["src/components"],
+            "@pages": ["src/pages"]
+        }
     }
 }

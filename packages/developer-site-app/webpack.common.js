@@ -1,5 +1,6 @@
 const { resolve, join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const srcDir = resolve(__dirname, './src');
 
@@ -37,10 +38,17 @@ module.exports = (_env, options) => {
         },
         resolve: {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            alias: {
+                '@components': join(srcDir, 'components'),
+                '@pages': join(srcDir, 'pages'),
+            },
         },
         plugins: [
             new HtmlWebpackPlugin({
                 template: join(srcDir, 'index.html'),
+            }),
+            new Dotenv({
+                path: `./.env${mode === 'development' ? '.dev' : ''}`,
             }),
         ],
         target: 'web',

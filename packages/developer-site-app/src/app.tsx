@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-export function App(): any {
-    return <div>Personal Site App</div>;
+import { ROUTER } from './router';
+
+export function App(): ReactElement {
+    return <RouterProvider router={ROUTER}></RouterProvider>;
 }
