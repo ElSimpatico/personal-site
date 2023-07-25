@@ -1,3 +1,4 @@
+@use './avatar-theme.scss';
 @use './button-theme.scss';
 @use './toggle-theme.scss';
 
@@ -5,6 +6,7 @@
     --theme-color-background-body: var(--color-black);
     --theme-color-text-body: var(--color-white);
 
+    @include avatar-theme.define-variables;
     @include button-theme.define-variables;
     @include toggle-theme.define-variables;
 }

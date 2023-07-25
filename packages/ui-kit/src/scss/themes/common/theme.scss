@@ -1,3 +1,4 @@
+@use './avatar-theme.scss';
 @use './button-theme.scss';
 @use './toggle-theme.scss';
 
@@ -26,6 +27,7 @@
     --radius-x1: 0.2rem;
     --radius-x2: 0.4rem;
 
+    @include avatar-theme.define-variables;
     @include button-theme.define-variables;
     @include toggle-theme.define-variables;
 }

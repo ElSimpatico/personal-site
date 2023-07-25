@@ -7,6 +7,7 @@ import type { JSX } from '@personal-site/ui-kit';
 
 
 
+export const UiAvatar = /*@__PURE__*/createReactComponent<JSX.UiAvatar, HTMLUiAvatarElement>('ui-avatar');
 export const UiButton = /*@__PURE__*/createReactComponent<JSX.UiButton, HTMLUiButtonElement>('ui-button');
 export const UiHeader = /*@__PURE__*/createReactComponent<JSX.UiHeader, HTMLUiHeaderElement>('ui-header');
 export const UiIcon = /*@__PURE__*/createReactComponent<JSX.UiIcon, HTMLUiIconElement>('ui-icon');

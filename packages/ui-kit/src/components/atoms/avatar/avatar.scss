@@ -1,0 +1,22 @@
+:host {
+    display: block;
+
+    .avatar-image {
+        width: var(--size-avatar);
+        height: var(--size-avatar);
+        border-radius: 50%;
+        padding: var(--size-border-avatar);
+        background: linear-gradient(
+            to top,
+            var(--color-border-avatar-gradient-from),
+            var(--color-border-avatar-gradient-to)
+        );
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+    }
+}

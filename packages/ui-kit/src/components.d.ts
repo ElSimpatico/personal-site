@@ -10,6 +10,16 @@ import { CheckDetailEvent, IconNames } from "@core/types";
 export { ButtonVariantType } from "./components/atoms/button/types";
 export { CheckDetailEvent, IconNames } from "@core/types";
 export namespace Components {
+    interface UiAvatar {
+        /**
+          * Specifies the alternative text of image
+         */
+        "imageAlt": string;
+        /**
+          * Specifies the image url
+         */
+        "imageUrl": string;
+    }
     interface UiButton {
         /**
           * Specifies the alternative text for screen readers
@@ -126,6 +136,12 @@ export interface UiToggleCustomEvent<T> extends CustomEvent<T> {
     target: HTMLUiToggleElement;
 }
 declare global {
+    interface HTMLUiAvatarElement extends Components.UiAvatar, HTMLStencilElement {
+    }
+    var HTMLUiAvatarElement: {
+        prototype: HTMLUiAvatarElement;
+        new (): HTMLUiAvatarElement;
+    };
     interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
     }
     var HTMLUiButtonElement: {
@@ -157,6 +173,7 @@ declare global {
         new (): HTMLUiToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "ui-avatar": HTMLUiAvatarElement;
         "ui-button": HTMLUiButtonElement;
         "ui-header": HTMLUiHeaderElement;
         "ui-icon": HTMLUiIconElement;
@@ -165,6 +182,16 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface UiAvatar {
+        /**
+          * Specifies the alternative text of image
+         */
+        "imageAlt"?: string;
+        /**
+          * Specifies the image url
+         */
+        "imageUrl"?: string;
+    }
     interface UiButton {
         /**
           * Specifies the alternative text for screen readers
@@ -280,6 +307,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "ui-avatar": UiAvatar;
         "ui-button": UiButton;
         "ui-header": UiHeader;
         "ui-icon": UiIcon;
@@ -291,6 +319,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ui-avatar": LocalJSX.UiAvatar & JSXBase.HTMLAttributes<HTMLUiAvatarElement>;
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
             "ui-header": LocalJSX.UiHeader & JSXBase.HTMLAttributes<HTMLUiHeaderElement>;
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
