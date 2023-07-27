@@ -1,5 +1,6 @@
 @use './avatar-theme.scss';
 @use './button-theme.scss';
+@use './card-theme.scss';
 @use './toggle-theme.scss';
 
 @mixin define-variables {
@@ -8,5 +9,6 @@
 
     @include avatar-theme.define-variables;
     @include button-theme.define-variables;
+    @include card-theme.define-variables;
     @include toggle-theme.define-variables;
 }

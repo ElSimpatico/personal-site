@@ -1,0 +1,9 @@
+@mixin define-variables {
+    // Size
+    --size-height-card-image-vertical: 20rem;
+    --size-widht-card-image-horizontal: 15rem;
+    // Spacing
+    --spacing-padding-card-content: var(--spacing-x2);
+    // Radius
+    --radius-border-card: 2.4rem;
+}

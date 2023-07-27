@@ -42,6 +42,20 @@ export namespace Components {
          */
         "variant"?: ButtonVariantType;
     }
+    interface UiCard {
+        /**
+          * Enable horizontal display
+         */
+        "horizontal": boolean;
+        /**
+          * Specifies the alternative text of the image
+         */
+        "imageAlt": string;
+        /**
+          * Specifies the imageUrl
+         */
+        "imageUrl": string;
+    }
     interface UiHeader {
         /**
           * Specifies the alternative text of menu button
@@ -148,6 +162,12 @@ declare global {
         prototype: HTMLUiButtonElement;
         new (): HTMLUiButtonElement;
     };
+    interface HTMLUiCardElement extends Components.UiCard, HTMLStencilElement {
+    }
+    var HTMLUiCardElement: {
+        prototype: HTMLUiCardElement;
+        new (): HTMLUiCardElement;
+    };
     interface HTMLUiHeaderElement extends Components.UiHeader, HTMLStencilElement {
     }
     var HTMLUiHeaderElement: {
@@ -175,6 +195,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ui-avatar": HTMLUiAvatarElement;
         "ui-button": HTMLUiButtonElement;
+        "ui-card": HTMLUiCardElement;
         "ui-header": HTMLUiHeaderElement;
         "ui-icon": HTMLUiIconElement;
         "ui-link": HTMLUiLinkElement;
@@ -217,6 +238,20 @@ declare namespace LocalJSX {
           * Specifies the button variant
          */
         "variant"?: ButtonVariantType;
+    }
+    interface UiCard {
+        /**
+          * Enable horizontal display
+         */
+        "horizontal"?: boolean;
+        /**
+          * Specifies the alternative text of the image
+         */
+        "imageAlt"?: string;
+        /**
+          * Specifies the imageUrl
+         */
+        "imageUrl"?: string;
     }
     interface UiHeader {
         /**
@@ -309,6 +344,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ui-avatar": UiAvatar;
         "ui-button": UiButton;
+        "ui-card": UiCard;
         "ui-header": UiHeader;
         "ui-icon": UiIcon;
         "ui-link": UiLink;
@@ -321,6 +357,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ui-avatar": LocalJSX.UiAvatar & JSXBase.HTMLAttributes<HTMLUiAvatarElement>;
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
+            "ui-card": LocalJSX.UiCard & JSXBase.HTMLAttributes<HTMLUiCardElement>;
             "ui-header": LocalJSX.UiHeader & JSXBase.HTMLAttributes<HTMLUiHeaderElement>;
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
             "ui-link": LocalJSX.UiLink & JSXBase.HTMLAttributes<HTMLUiLinkElement>;

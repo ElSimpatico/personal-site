@@ -1,0 +1,44 @@
+:host {
+    display: block;
+
+    .card-container {
+        border-radius: var(--radius-border-card);
+        box-shadow: 0.2rem 0.2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-image {
+        width: 100%;
+        height: var(--size-height-card-image-vertical);
+        border-radius: var(--radius-border-card) var(--radius-border-card) 0 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+    }
+
+    .card-content {
+        padding: var(--spacing-padding-card-content);
+        background-color: var(--color-background-card-content);
+        border-radius: 0 0 var(--radius-border-card) var(--radius-border-card);
+    }
+}
+
+:host(.horizontal) {
+    .card-container {
+        flex-direction: row;
+    }
+    .card-image {
+        flex: 1 0 var(--size-widht-card-image-horizontal);
+        height: auto;
+        border-radius: var(--radius-border-card) 0 0 var(--radius-border-card);
+    }
+    .card-content {
+        width: 100%;
+        border-radius: 0 var(--radius-border-card) var(--radius-border-card) 0;
+    }
+}
