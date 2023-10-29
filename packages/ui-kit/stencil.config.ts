@@ -12,7 +12,7 @@ export const config: Config = {
         {
             type: 'dist',
             esmLoaderPath: '../loader',
-            copy: [{ src: 'assets' }],
+            copy: [{ src: 'assets' }, { src: 'scss' }],
         },
         {
             type: 'dist-custom-elements',
