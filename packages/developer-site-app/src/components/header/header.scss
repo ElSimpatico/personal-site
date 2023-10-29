@@ -1,5 +1,13 @@
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/mixins.scss';
+
 .main-header {
     margin: var(--spacing-x2) 0;
+    @include tablet() {
+        margin: var(--spacing-x3) 0;
+    }
+    @include desktop() {
+        margin: var(--spacing-x4) 0;
+    }
 }
 .router-link {
     display: inline-block;

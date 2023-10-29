@@ -7,6 +7,7 @@
     "license": "MIT",
     "dependencies": {
         "@apollo/client": "^3.7.17",
+        "@contentful/rich-text-react-renderer": "^15.19.0",
         "@personal-site/ui-kit-react": "*",
         "graphql": "^16.7.1",
         "react": "^18.2.0",
