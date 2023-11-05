@@ -16,7 +16,7 @@ const TagName = 'ui-toggle';
 createStyles(
     'component-stories',
     `
-    .my-story-class span {
+    .toggle-story span {
         border: 1px dashed;
     }
 `,
@@ -36,7 +36,7 @@ const defaultArgTypes = {};
 const Template = (args): string =>
     printStoryTemplate(
         TagName,
-        { ...args, class: 'my-story-class' },
+        { ...args, class: 'toggle-story' },
         '<span>Slot Label</span>',
     );
 

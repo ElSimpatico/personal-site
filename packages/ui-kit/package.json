@@ -23,6 +23,7 @@
         "build": "yarn clean && stencil build",
         "build:watch": "yarn clean && stencil build --watch",
         "test": "stencil test --spec --coverage",
+        "test:watch": "stencil test --spec --coverage --watch",
         "generate": "plop --plopfile ./scripts/plopfile.js",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",

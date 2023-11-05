@@ -56,6 +56,20 @@ export namespace Components {
          */
         "imageUrl": string;
     }
+    interface UiFooter {
+        /**
+          * Specifies the navigation links as JSON string of `LinkModel`
+         */
+        "dataLinksSocial"?: string;
+        /**
+          * Specifies the alternative text of logo image
+         */
+        "logoAlt"?: string;
+        /**
+          * Specifies the logo image url
+         */
+        "logoUrl"?: string;
+    }
     interface UiHeader {
         /**
           * Specifies the alternative text of menu button
@@ -168,6 +182,12 @@ declare global {
         prototype: HTMLUiCardElement;
         new (): HTMLUiCardElement;
     };
+    interface HTMLUiFooterElement extends Components.UiFooter, HTMLStencilElement {
+    }
+    var HTMLUiFooterElement: {
+        prototype: HTMLUiFooterElement;
+        new (): HTMLUiFooterElement;
+    };
     interface HTMLUiHeaderElement extends Components.UiHeader, HTMLStencilElement {
     }
     var HTMLUiHeaderElement: {
@@ -196,6 +216,7 @@ declare global {
         "ui-avatar": HTMLUiAvatarElement;
         "ui-button": HTMLUiButtonElement;
         "ui-card": HTMLUiCardElement;
+        "ui-footer": HTMLUiFooterElement;
         "ui-header": HTMLUiHeaderElement;
         "ui-icon": HTMLUiIconElement;
         "ui-link": HTMLUiLinkElement;
@@ -252,6 +273,20 @@ declare namespace LocalJSX {
           * Specifies the imageUrl
          */
         "imageUrl"?: string;
+    }
+    interface UiFooter {
+        /**
+          * Specifies the navigation links as JSON string of `LinkModel`
+         */
+        "dataLinksSocial"?: string;
+        /**
+          * Specifies the alternative text of logo image
+         */
+        "logoAlt"?: string;
+        /**
+          * Specifies the logo image url
+         */
+        "logoUrl"?: string;
     }
     interface UiHeader {
         /**
@@ -345,6 +380,7 @@ declare namespace LocalJSX {
         "ui-avatar": UiAvatar;
         "ui-button": UiButton;
         "ui-card": UiCard;
+        "ui-footer": UiFooter;
         "ui-header": UiHeader;
         "ui-icon": UiIcon;
         "ui-link": UiLink;
@@ -358,6 +394,7 @@ declare module "@stencil/core" {
             "ui-avatar": LocalJSX.UiAvatar & JSXBase.HTMLAttributes<HTMLUiAvatarElement>;
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
             "ui-card": LocalJSX.UiCard & JSXBase.HTMLAttributes<HTMLUiCardElement>;
+            "ui-footer": LocalJSX.UiFooter & JSXBase.HTMLAttributes<HTMLUiFooterElement>;
             "ui-header": LocalJSX.UiHeader & JSXBase.HTMLAttributes<HTMLUiHeaderElement>;
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
             "ui-link": LocalJSX.UiLink & JSXBase.HTMLAttributes<HTMLUiLinkElement>;

@@ -26,11 +26,13 @@
 
 ### Used by
 
+ - [ui-footer](../../molecules/footer)
  - [ui-header](../../molecules/header)
 
 ### Graph
 ```mermaid
 graph TD;
+  ui-footer --> ui-link
   ui-header --> ui-link
   style ui-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
