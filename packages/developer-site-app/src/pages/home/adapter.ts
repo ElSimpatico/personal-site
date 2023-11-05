@@ -18,8 +18,7 @@ export interface HomeSection<T> {
 }
 
 export interface HomeMainContent {
-    title?: string;
-    description?: string;
+    mainDescription?: any;
     avatarImageUrl?: string;
     avatarImageAlt?: string;
     technologySection?: HomeSection<ImageItem>;
@@ -47,7 +46,6 @@ function parseProjectList(data: any): ProjectItem[] {
             liveLabel: item?.liveLink?.label,
             liveAccesibleLabel: item?.liveLink?.accessibleLabel,
         };
-        console.log(projectItem);
         return projectItem;
     });
 }
@@ -63,8 +61,7 @@ export function parseHomeMain(data: any): HomeMainContent {
     return {
         avatarImageUrl: homeData?.avatar?.url,
         avatarImageAlt: homeData?.avatar?.description,
-        title: homeData?.title,
-        description: homeData?.description,
+        mainDescription: homeData?.mainDescription?.json,
         technologySection: {
             title: homeData?.technologiesTitle,
             description: homeData?.technologiesDescription,

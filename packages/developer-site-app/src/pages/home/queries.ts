@@ -10,8 +10,9 @@ export const GET_HOME = gql`
                     url
                     description
                 }
-                title
-                description
+                mainDescription {
+                    json
+                }
                 technologiesTitle
                 technologiesDescription
                 technologiesImagesCollection {

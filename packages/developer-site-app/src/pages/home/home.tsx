@@ -1,6 +1,7 @@
 import React, { ReactElement, useMemo } from 'react';
 import { useQuery } from '@apollo/client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { MARKS } from '@contentful/rich-text-types';
 
 import { UiAvatar, UiCard, UiLink } from '@personal-site/ui-kit-react';
 import { GET_HOME, GET_HOME_PROJECTS } from './queries';
@@ -19,6 +20,16 @@ export function Home(): ReactElement {
     const { loading: mainLoading, data: mainData } = useQuery(GET_HOME);
     const { loading: projectsLoading, data: projectsData } =
         useQuery(GET_HOME_PROJECTS);
+
+    const options = useMemo(() => {
+        return {
+            renderMark: {
+                [MARKS.BOLD]: (text) => (
+                    <span className="highlighted-text">{text}</span>
+                ),
+            },
+        };
+    }, []);
 
     const mainContent = useMemo<HomeMainContent>(() => {
         return parseHomeMain(mainData);
@@ -44,15 +55,10 @@ export function Home(): ReactElement {
                     imageAlt={mainContent?.avatarImageAlt}
                 ></UiAvatar>
                 <div className="business-card__text-container">
-                    <h1
-                        className="business-card__title"
-                        id="business-card-title"
-                    >
-                        {mainContent?.title}
-                    </h1>
-                    <p id="business-card-description">
-                        {mainContent?.description}
-                    </p>
+                    {documentToReactComponents(
+                        mainContent.mainDescription,
+                        options,
+                    )}
                 </div>
             </section>
             {mainContent?.technologySection && (
