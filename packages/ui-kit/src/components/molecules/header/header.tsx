@@ -15,7 +15,7 @@ import {
     IconNames,
     LinkModel,
 } from '@core/types';
-import { getBreakpoint } from '@core/utils';
+import { getBreakpoint, getSocialIconName } from '@core/utils';
 
 @Component({
     tag: 'ui-header',
@@ -81,17 +81,6 @@ export class Header implements ComponentInterface {
         document.body.classList.add(enable ? 'theme-dark' : 'theme-light');
     };
 
-    private getSocialIconName = (id: string): IconNames | null => {
-        switch (id) {
-            case 'github':
-                return IconNames.github;
-            case 'linkedin':
-                return IconNames.linkedin;
-            default:
-                return null;
-        }
-    };
-
     componentWillLoad(): void {
         this.onResize();
         this.dataLinksSocialWatch();
@@ -109,9 +98,7 @@ export class Header implements ComponentInterface {
                     <ul class="navigation-icon-list">
                         {this.linksSocial.map(
                             (link: LinkModel, index: number) => {
-                                const iconName = this.getSocialIconName(
-                                    link.id,
-                                );
+                                const iconName = getSocialIconName(link.id);
                                 if (iconName) {
                                     return (
                                         <li
