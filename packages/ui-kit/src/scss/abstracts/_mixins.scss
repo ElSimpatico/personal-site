@@ -44,3 +44,16 @@
     outline: none;
     box-shadow: 0 0 0 0.2rem #ffffff, 0 0 0 0.4rem #000000;
 }
+
+@mixin highlighted {
+    color: var(--color-highlight, var(--color-brand-secondary));
+    @supports (-webkit-background-clip: text) {
+        background: linear-gradient(
+            to right,
+            var(--color-brand-primary),
+            var(--color-brand-secondary)
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+}

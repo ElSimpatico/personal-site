@@ -27,3 +27,8 @@ ul {
 *:focus-visible {
     @include focusable();
 }
+
+.highlighted-text {
+    @include highlighted;
+    font-weight: bold;
+}
