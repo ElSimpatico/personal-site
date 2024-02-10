@@ -1,78 +1,76 @@
 :host {
     display: inline-block;
-    border-radius: var(--radius-x2);
+    border-radius: $radius-x2;
 
     .ps-button {
         display: inline-flex;
         border: 0.1rem solid transparent;
-        padding: var(--spacing-padding-button);
+        padding: $spacing-x1 $spacing-x2;
         cursor: pointer;
-        color: var(--color-text);
+        color: $color-dark-black;
         text-decoration: none;
         font-size: inherit;
         line-height: inherit;
         font-family: inherit;
         align-items: center;
-        border-radius: var(--radius-x2);
+        border-radius: $radius-x2;
     }
 }
 
 :host(.primary) {
-    --color-text: var(--color-text-button-primary);
     .ps-button {
-        background-color: var(--color-background-button-primary-default);
-        border-color: var(--color-background-button-primary-default);
+        background-color: var(--theme-color-primary);
+        border-color: var(--theme-color-primary);
     }
     &:hover {
         .ps-button {
-            background-color: var(--color-background-button-primary-hover);
+            background-color: var(--theme-color-primary-hover);
         }
     }
     &.disabled {
         .ps-button {
-            background-color: var(--color-background-button-primary-default);
+            background-color: var(--theme-color-primary);
         }
     }
 }
 
 :host(.secondary) {
-    --color-text: var(--color-text-button-secondary);
     .ps-button {
-        background-color: var(--color-background-button-secondary-default);
-        border-color: var(--color-background-button-secondary-default);
+        background-color: var(--theme-color-secondary);
+        border-color: var(--theme-color-secondary);
     }
     &:hover {
         .ps-button {
-            background-color: var(--color-background-button-secondary-hover);
+            background-color: var(--theme-color-secondary-hover);
         }
     }
     &.disabled {
         .ps-button {
-            background-color: var(--color-background-button-secondary-default);
+            background-color: var(--theme-color-secondary);
         }
     }
 }
 
 :host(.tertiary) {
-    --color-text: var(--color-text-button-tertiary);
     .ps-button {
+        color: var(--theme-color-primary);
         background-color: transparent;
-        border-color: var(--color-border-button-tertiary-default);
+        border-color: var(--theme-color-primary);
     }
     &:hover {
         .ps-button {
-            border-color: var(--color-border-button-tertiary-hover);
+            border-color: var(--theme-color-primary-hover);
         }
     }
     &.disabled {
         .ps-button {
-            border-color: var(--color-border-button-tertiary-default);
+            border-color: var(--theme-color-primary);
         }
     }
 }
 
 :host(.disabled) {
-    opacity: var(--opacity-button-disabled);
+    opacity: $opacity-50;
     .ps-button {
         cursor: default;
     }

@@ -1,15 +1,14 @@
 :host {
     display: block;
-
     .avatar-image {
-        width: var(--size-avatar);
-        height: var(--size-avatar);
-        border-radius: 50%;
-        padding: var(--size-border-avatar);
+        width: var(--size-avatar, 20rem);
+        height: var(--size-avatar, 20rem);
+        border-radius: $radius-circle;
+        padding: var(--size-border-avatar, $spacing-x1);
         background: linear-gradient(
             to top,
-            var(--color-border-avatar-gradient-from),
-            var(--color-border-avatar-gradient-to)
+            var(--theme-color-primary),
+            var(--theme-color-secondary)
         );
 
         img {

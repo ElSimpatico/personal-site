@@ -1,4 +1,6 @@
+@use '../../abstracts/variables';
+
 @mixin define-variables {
     // Color
-    --color-background-card-content: var(--color-grey);
+    --theme-color-background-card-content: #{variables.$color-dark-grey};
 }

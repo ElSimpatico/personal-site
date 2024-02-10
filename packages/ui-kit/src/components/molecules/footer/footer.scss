@@ -11,8 +11,8 @@
             text-align: right;
         }
         &__logo {
-            width: var(--size-width-footer-logo, 9.6rem);
-            height: var(--size-height-footer-logo, 5.6rem);
+            width: var(--size-width-footer-logo, $spacing-x10);
+            height: var(--size-height-footer-logo, $spacing-x6);
         }
         &__image {
             filter: grayscale(100%);
@@ -28,13 +28,13 @@
             &:not(:last-child) {
                 margin: var(
                     --spacing-margin-footer-listitem,
-                    0 var(--spacing-x2) 0 0
+                    0 $spacing-x2 0 0
                 );
             }
         }
     }
 
     .separator {
-        margin: var(--spacing-margin-footer-separator, var(--spacing-x2) 0);
+        margin: var(--spacing-margin-footer-separator, $spacing-x2 0);
     }
 }

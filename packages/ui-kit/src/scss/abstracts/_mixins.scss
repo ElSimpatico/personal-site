@@ -46,12 +46,12 @@
 }
 
 @mixin highlighted {
-    color: var(--color-highlight, var(--color-brand-secondary));
+    color: var(--theme-color-secondary);
     @supports (-webkit-background-clip: text) {
         background: linear-gradient(
             to right,
-            var(--color-brand-primary),
-            var(--color-brand-secondary)
+            var(--theme-color-primary),
+            var(--theme-color-secondary)
         );
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;

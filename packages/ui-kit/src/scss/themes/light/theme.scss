@@ -1,14 +1,16 @@
-@use './avatar-theme.scss';
-@use './button-theme.scss';
+@use 'sass:map';
+@use '../../abstracts/variables';
+
 @use './card-theme.scss';
-@use './toggle-theme.scss';
 
 @mixin define-variables {
-    --theme-color-background-body: var(--color-white);
-    --theme-color-text-body: var(--color-pure-black);
+    --theme-color-primary: #{variables.$color-light-blue};
+    --theme-color-primary-hover: #{variables.$color-intense-blue};
+    --theme-color-secondary: #{variables.$color-pink};
+    --theme-color-secondary-hover: #{variables.$color-intense-pink};
 
-    @include avatar-theme.define-variables;
-    @include button-theme.define-variables;
+    --theme-color-background-body: #{variables.$color-white};
+    --theme-color-text-body: #{variables.$color-black};
+
     @include card-theme.define-variables;
-    @include toggle-theme.define-variables;
 }
