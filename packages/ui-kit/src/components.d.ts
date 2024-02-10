@@ -124,6 +124,8 @@ export namespace Components {
          */
         "url"?: string;
     }
+    interface UiTag {
+    }
     interface UiToggle {
         /**
           * Specifies an alternative text for toggle
@@ -206,6 +208,12 @@ declare global {
         prototype: HTMLUiLinkElement;
         new (): HTMLUiLinkElement;
     };
+    interface HTMLUiTagElement extends Components.UiTag, HTMLStencilElement {
+    }
+    var HTMLUiTagElement: {
+        prototype: HTMLUiTagElement;
+        new (): HTMLUiTagElement;
+    };
     interface HTMLUiToggleElement extends Components.UiToggle, HTMLStencilElement {
     }
     var HTMLUiToggleElement: {
@@ -220,6 +228,7 @@ declare global {
         "ui-header": HTMLUiHeaderElement;
         "ui-icon": HTMLUiIconElement;
         "ui-link": HTMLUiLinkElement;
+        "ui-tag": HTMLUiTagElement;
         "ui-toggle": HTMLUiToggleElement;
     }
 }
@@ -346,6 +355,8 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    interface UiTag {
+    }
     interface UiToggle {
         /**
           * Specifies an alternative text for toggle
@@ -384,6 +395,7 @@ declare namespace LocalJSX {
         "ui-header": UiHeader;
         "ui-icon": UiIcon;
         "ui-link": UiLink;
+        "ui-tag": UiTag;
         "ui-toggle": UiToggle;
     }
 }
@@ -398,6 +410,7 @@ declare module "@stencil/core" {
             "ui-header": LocalJSX.UiHeader & JSXBase.HTMLAttributes<HTMLUiHeaderElement>;
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
             "ui-link": LocalJSX.UiLink & JSXBase.HTMLAttributes<HTMLUiLinkElement>;
+            "ui-tag": LocalJSX.UiTag & JSXBase.HTMLAttributes<HTMLUiTagElement>;
             "ui-toggle": LocalJSX.UiToggle & JSXBase.HTMLAttributes<HTMLUiToggleElement>;
         }
     }

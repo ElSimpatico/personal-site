@@ -1,0 +1,13 @@
+:host {
+    display: inline-flex;
+
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+
+    border: 0.1rem solid $color-dark-green;
+    padding-inline: $spacing-x2;
+    border-radius: $radius-x12;
+    background-color: $color-light-green;
+    color: $color-dark-green;
+}
