@@ -15,4 +15,5 @@ export const UiHeader = /*@__PURE__*/createReactComponent<JSX.UiHeader, HTMLUiHe
 export const UiIcon = /*@__PURE__*/createReactComponent<JSX.UiIcon, HTMLUiIconElement>('ui-icon');
 export const UiLink = /*@__PURE__*/createReactComponent<JSX.UiLink, HTMLUiLinkElement>('ui-link');
 export const UiTag = /*@__PURE__*/createReactComponent<JSX.UiTag, HTMLUiTagElement>('ui-tag');
+export const UiThemeToggle = /*@__PURE__*/createReactComponent<JSX.UiThemeToggle, HTMLUiThemeToggleElement>('ui-theme-toggle');
 export const UiToggle = /*@__PURE__*/createReactComponent<JSX.UiToggle, HTMLUiToggleElement>('ui-toggle');

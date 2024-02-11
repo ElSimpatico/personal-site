@@ -126,6 +126,16 @@ export namespace Components {
     }
     interface UiTag {
     }
+    interface UiThemeToggle {
+        /**
+          * Specifies an alternative text for toggle
+         */
+        "accessibleLabel": string;
+        /**
+          * Specifies if dark mode is enabled
+         */
+        "darkMode": boolean;
+    }
     interface UiToggle {
         /**
           * Specifies an alternative text for toggle
@@ -214,6 +224,12 @@ declare global {
         prototype: HTMLUiTagElement;
         new (): HTMLUiTagElement;
     };
+    interface HTMLUiThemeToggleElement extends Components.UiThemeToggle, HTMLStencilElement {
+    }
+    var HTMLUiThemeToggleElement: {
+        prototype: HTMLUiThemeToggleElement;
+        new (): HTMLUiThemeToggleElement;
+    };
     interface HTMLUiToggleElement extends Components.UiToggle, HTMLStencilElement {
     }
     var HTMLUiToggleElement: {
@@ -229,6 +245,7 @@ declare global {
         "ui-icon": HTMLUiIconElement;
         "ui-link": HTMLUiLinkElement;
         "ui-tag": HTMLUiTagElement;
+        "ui-theme-toggle": HTMLUiThemeToggleElement;
         "ui-toggle": HTMLUiToggleElement;
     }
 }
@@ -357,6 +374,16 @@ declare namespace LocalJSX {
     }
     interface UiTag {
     }
+    interface UiThemeToggle {
+        /**
+          * Specifies an alternative text for toggle
+         */
+        "accessibleLabel"?: string;
+        /**
+          * Specifies if dark mode is enabled
+         */
+        "darkMode"?: boolean;
+    }
     interface UiToggle {
         /**
           * Specifies an alternative text for toggle
@@ -396,6 +423,7 @@ declare namespace LocalJSX {
         "ui-icon": UiIcon;
         "ui-link": UiLink;
         "ui-tag": UiTag;
+        "ui-theme-toggle": UiThemeToggle;
         "ui-toggle": UiToggle;
     }
 }
@@ -411,6 +439,7 @@ declare module "@stencil/core" {
             "ui-icon": LocalJSX.UiIcon & JSXBase.HTMLAttributes<HTMLUiIconElement>;
             "ui-link": LocalJSX.UiLink & JSXBase.HTMLAttributes<HTMLUiLinkElement>;
             "ui-tag": LocalJSX.UiTag & JSXBase.HTMLAttributes<HTMLUiTagElement>;
+            "ui-theme-toggle": LocalJSX.UiThemeToggle & JSXBase.HTMLAttributes<HTMLUiThemeToggleElement>;
             "ui-toggle": LocalJSX.UiToggle & JSXBase.HTMLAttributes<HTMLUiToggleElement>;
         }
     }

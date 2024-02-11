@@ -1,0 +1,27 @@
+:host {
+    display: block;
+
+    .ps-themeToggle {
+        display: flex;
+        align-items: center;
+
+        &__toggle {
+            margin: 0 $spacing-x1 0 0;
+        }
+
+        &__iconBox {
+            position: relative;
+            width: var(--font-size-icon, 2.4rem);
+            height: var(--font-size-icon, 2.4rem);
+        }
+
+        &__icon {
+            position: absolute;
+            transition: opacity 0.6s linear;
+            opacity: 0;
+            &--show {
+                opacity: 1;
+            }
+        }
+    }
+}
