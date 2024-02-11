@@ -1,7 +1,8 @@
 @import './abstracts/mixins';
 @import './abstracts/variables';
 
-@import './base/icons';
 @import './base/reset';
+@import './base/typography';
+@import './base/icons';
 
 @import './themes/themes.scss';

@@ -10,7 +10,9 @@
     --theme-color-secondary-hover: #{variables.$color-intense-pink};
 
     --theme-color-background-body: #{variables.$color-dark-black};
-    --theme-color-text-body: #{variables.$color-white};
+    --theme-color-text-body: #{variables.$color-charcoal};
+
+    --theme-color-heading: #{variables.$color-light-grey};
 
     @include card-theme.define-variables;
 }
