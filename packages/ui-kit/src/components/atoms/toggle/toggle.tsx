@@ -7,6 +7,7 @@ import {
     Host,
     Event,
     EventEmitter,
+    Element,
 } from '@stencil/core';
 import { CheckDetailEvent } from '@core/types';
 
@@ -17,6 +18,8 @@ import { CheckDetailEvent } from '@core/types';
     scoped: true,
 })
 export class Toggle implements ComponentInterface {
+    @Element() hostElement: HTMLUiToggleElement;
+
     /** Specifies if input is checked */
     @Prop() readonly checked?: boolean = false;
 
@@ -46,10 +49,17 @@ export class Toggle implements ComponentInterface {
         });
     };
 
+    private onToggle = (): void => {
+        const inputElement = this.hostElement.querySelector(
+            'input[type="checkbox"]',
+        ) as HTMLInputElement;
+        inputElement.click();
+    };
+
     render(): JSX.Element {
         return (
             <Host>
-                <label htmlFor={this.identifier} class="toggle-wrapper">
+                <div class="toggle-wrapper" onClick={this.onToggle}>
                     <input
                         checked={this.checked}
                         disabled={this.disabled}
@@ -62,7 +72,7 @@ export class Toggle implements ComponentInterface {
                     <div class="toggle-box">
                         <div class="toggle-box__circle"></div>
                     </div>
-                </label>
+                </div>
                 <label htmlFor={this.identifier} class="toggle-label">
                     <slot></slot>
                 </label>

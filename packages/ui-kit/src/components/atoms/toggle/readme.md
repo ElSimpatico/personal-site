@@ -28,12 +28,12 @@
 
 ### Used by
 
- - [ui-header](../../molecules/header)
+ - [ui-theme-toggle](../../molecules/theme-toggle)
 
 ### Graph
 ```mermaid
 graph TD;
-  ui-header --> ui-toggle
+  ui-theme-toggle --> ui-toggle
   style ui-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -23,12 +23,12 @@ beforeEach(async () => {
 it('should render toggle', async () => {
     expect(toggle).toEqualHtml(`
     <ui-toggle>
-        <label class="toggle-wrapper" htmlfor="test">
+        <div class="toggle-wrapper">
             <input id="test" type="checkbox"></input>
             <div class="toggle-box">
                 <div class="toggle-box__circle"></div>
             </div>
-        </label>
+        </div>
         <label class="toggle-label" htmlfor="test"></label>
     </ui-toggle>
   `);
