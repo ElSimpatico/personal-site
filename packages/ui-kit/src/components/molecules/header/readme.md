@@ -24,7 +24,7 @@
 
 - [ui-link](../../atoms/link)
 - [ui-icon](../../atoms/icon)
-- [ui-toggle](../../atoms/toggle)
+- [ui-theme-toggle](../theme-toggle)
 - [ui-button](../../atoms/button)
 
 ### Graph
@@ -32,8 +32,10 @@
 graph TD;
   ui-header --> ui-link
   ui-header --> ui-icon
-  ui-header --> ui-toggle
+  ui-header --> ui-theme-toggle
   ui-header --> ui-button
+  ui-theme-toggle --> ui-toggle
+  ui-theme-toggle --> ui-icon
   style ui-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

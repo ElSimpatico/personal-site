@@ -48,7 +48,6 @@ Header.args = {
     accesibleLabelMenuButton: 'Menu button',
     dataLinksSocial: jsonStringifyFormatted(linksSocial),
     darkMode: true,
-    darkModeLabel: 'Dark Mode',
     darkModeAccessibleLabel: 'Switch theme',
 };
 

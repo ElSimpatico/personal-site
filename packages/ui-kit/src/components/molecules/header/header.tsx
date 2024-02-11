@@ -39,9 +39,6 @@ export class Header implements ComponentInterface {
     /** Specifies if the dark mode is enabled */
     @Prop({ mutable: true }) darkMode?: boolean = false;
 
-    /** Specifies the dark mode label*/
-    @Prop() readonly darkModeLabel?: string;
-
     /** Specifies the alternative text for the dark mode label*/
     @Prop() readonly darkModeAccessibleLabel?: string;
 
@@ -70,21 +67,9 @@ export class Header implements ComponentInterface {
         this.expanded = !this.expanded;
     };
 
-    private onChangeTheme = (): void => {
-        const isLightMode = document.body.classList.contains('theme-light');
-        this.enableDarkMode(isLightMode);
-        this.darkMode = !this.darkMode;
-    };
-
-    private enableDarkMode = (enable: boolean): void => {
-        document.body.classList.remove(enable ? 'theme-light' : 'theme-dark');
-        document.body.classList.add(enable ? 'theme-dark' : 'theme-light');
-    };
-
     componentWillLoad(): void {
         this.onResize();
         this.dataLinksSocialWatch();
-        this.enableDarkMode(this.darkMode);
     }
 
     private renderLinkList = (): JSX.Element => {
@@ -122,14 +107,10 @@ export class Header implements ComponentInterface {
                         )}
                     </ul>
                 )}
-                <ui-toggle
-                    identifier="theme-switch"
-                    onChangeDetailEvent={this.onChangeTheme}
-                    checked={this.darkMode}
+                <ui-theme-toggle
+                    darkMode={this.darkMode}
                     accessibleLabel={this.darkModeAccessibleLabel}
-                >
-                    {this.darkModeLabel}
-                </ui-toggle>
+                ></ui-theme-toggle>
             </nav>
         );
     };

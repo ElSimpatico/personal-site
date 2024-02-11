@@ -7,10 +7,8 @@ import { resizeWindow } from '@core/utils/testing';
 
 let page: SpecPage;
 let header: HTMLUiHeaderElement;
-const onPressHandler = jest.fn();
 
 beforeEach(async () => {
-    onPressHandler.mockClear();
     page = await newSpecPage({
         components: [Header],
         template: () => <ui-header></ui-header>,
@@ -37,14 +35,10 @@ it('should render icon link list', async () => {
 });
 
 it('should enable dark mode', async () => {
-    const toggle = header.querySelector('ui-toggle[identifier="theme-switch"]');
-    const event = new CustomEvent('changeDetailEvent', {
-        composed: true,
-        bubbles: true,
-    });
-    toggle.dispatchEvent(event);
-    page.waitForChanges();
-    expect(document.body.classList.contains('theme-dark')).toBeTruthy();
+    header.darkMode = true;
+    await page.waitForChanges();
+    const themeToggle = header.querySelector('ui-theme-toggle');
+    expect(themeToggle.hasAttribute('darkMode')).toBeTruthy();
 });
 
 it('should render menu button in mobile viewport', async () => {
