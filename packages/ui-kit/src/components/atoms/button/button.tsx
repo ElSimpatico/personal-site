@@ -5,8 +5,10 @@ import {
     JSX,
     Host,
     Prop,
+    Element,
     Event,
     EventEmitter,
+    Method,
 } from '@stencil/core';
 import { ButtonVariantType } from './types';
 import { ClassType } from '@core/types';
@@ -18,6 +20,8 @@ import { ClassType } from '@core/types';
     scoped: true,
 })
 export class Button implements ComponentInterface {
+    @Element() hostElement: HTMLUiButtonElement;
+
     /** Specifies the alternative text for screen readers */
     @Prop() readonly accessibleLabel?: string;
 
@@ -35,6 +39,18 @@ export class Button implements ComponentInterface {
 
     /** Emitted when the button is pressed */
     @Event() press: EventEmitter<void>;
+
+    /** Focus in native element */
+    @Method()
+    focusNativeElement(): Promise<void> {
+        const element = this.hostElement.querySelector(
+            '.ps-button',
+        ) as HTMLElement;
+
+        element && element.focus();
+
+        return Promise.resolve();
+    }
 
     private onClickHandler = (): void => {
         this.press.emit();

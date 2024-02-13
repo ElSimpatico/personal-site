@@ -23,6 +23,19 @@
 | `press` | Emitted when the button is pressed | `CustomEvent<void>` |
 
 
+## Methods
+
+### `focusNativeElement() => Promise<void>`
+
+Focus in native element
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

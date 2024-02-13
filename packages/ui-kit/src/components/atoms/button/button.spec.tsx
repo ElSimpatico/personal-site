@@ -6,34 +6,50 @@ let page: SpecPage;
 let button: HTMLUiButtonElement;
 const onPressHandler = jest.fn();
 
-beforeEach(async () => {
-    onPressHandler.mockClear();
-    page = await newSpecPage({
-        components: [Button],
-        template: () => <ui-button onPress={onPressHandler}>Text</ui-button>,
+describe('Button component', () => {
+    beforeEach(async () => {
+        onPressHandler.mockClear();
+        page = await newSpecPage({
+            components: [Button],
+            template: () => (
+                <ui-button onPress={onPressHandler}>Text</ui-button>
+            ),
+        });
+        button = page.root as HTMLUiButtonElement;
     });
-    button = page.root as HTMLUiButtonElement;
-});
 
-it('should render button', async () => {
-    expect(button).toEqualHtml(`
-    <ui-button class="primary"><button class="ps-button">Text</button></ui-button>
-  `);
-});
+    it('should render button', async () => {
+        expect(button).toEqualHtml(`
+        <ui-button class="primary"><button class="ps-button">Text</button></ui-button>
+      `);
+    });
 
-it('should render button as link', async () => {
-    button.linkHref = '#';
-    await page.waitForChanges();
-    expect(button).toEqualHtml(`
-    <ui-button class="primary"><a class="ps-button" href="#">Text</a></ui-button>
-  `);
-});
+    it('should render button as link', async () => {
+        button.linkHref = '#';
+        await page.waitForChanges();
+        expect(button).toEqualHtml(`
+        <ui-button class="primary"><a class="ps-button" href="#">Text</a></ui-button>
+      `);
+    });
 
-it('should be pressed', async () => {
-    const nativeButton = button.querySelector('button');
-    nativeButton.click();
+    it('should be pressed', async () => {
+        const nativeButton = button.querySelector('button');
+        nativeButton.click();
 
-    await page.waitForChanges();
+        await page.waitForChanges();
 
-    expect(onPressHandler).toBeCalledTimes(1);
+        expect(onPressHandler).toBeCalledTimes(1);
+    });
+
+    it('should make focus in native element', async () => {
+        const nativeElement = button.querySelector('.ps-button') as HTMLElement;
+        const focusMock = jest.fn();
+        nativeElement.focus = focusMock;
+
+        button.querySelector = jest.fn().mockReturnValue(nativeElement);
+
+        await button.focusNativeElement();
+
+        expect(focusMock).toBeCalled();
+    });
 });
