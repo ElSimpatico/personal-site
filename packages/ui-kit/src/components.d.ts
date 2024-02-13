@@ -30,6 +30,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Focus in native element
+         */
+        "focusNativeElement": () => Promise<void>;
+        /**
           * Specifies the link reference. If the property is filled the `a` element is rendered
          */
         "linkHref"?: string;
@@ -76,6 +80,10 @@ export namespace Components {
          */
         "accesibleLabelMenu"?: string;
         /**
+          * Close mobile menu
+         */
+        "closeMenu": () => Promise<void>;
+        /**
           * Specifies if the dark mode is enabled
          */
         "darkMode"?: boolean;
@@ -84,13 +92,13 @@ export namespace Components {
          */
         "darkModeAccessibleLabel"?: string;
         /**
-          * Specifies the dark mode label
-         */
-        "darkModeLabel"?: string;
-        /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */
         "dataLinksSocial"?: string;
+        /**
+          * Specifies if the menu mobile is expanded
+         */
+        "expanded": boolean;
         /**
           * Specifies the alternative text of logo image
          */
@@ -328,13 +336,13 @@ declare namespace LocalJSX {
          */
         "darkModeAccessibleLabel"?: string;
         /**
-          * Specifies the dark mode label
-         */
-        "darkModeLabel"?: string;
-        /**
           * Specifies the navigation links as JSON string of `LinkModel`
          */
         "dataLinksSocial"?: string;
+        /**
+          * Specifies if the menu mobile is expanded
+         */
+        "expanded"?: boolean;
         /**
           * Specifies the alternative text of logo image
          */
