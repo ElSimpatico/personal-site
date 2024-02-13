@@ -3,8 +3,13 @@
 
     .ps-header {
         position: relative;
+
         .header-content {
             display: flex;
+            padding: $spacing-x2;
+            background-color: var(--theme-color-background-card-content);
+            border: 0.2rem solid var(--theme-color-primary);
+            border-radius: $radius-x2;
             .header-logo {
                 width: var(--size-width-header-logo, $spacing-x10);
                 height: var(--size-height-header-logo, $spacing-x6);
@@ -19,12 +24,15 @@
             }
         }
         .ps-header-main-navigation {
-            display: none;
+            box-shadow: 0.2rem 0.2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+            display: grid;
+            transition: top 1.5s, opacity 1.5s ease-in-out;
+            opacity: 0;
+            z-index: 0;
             position: absolute;
-            top: 100%;
+            top: -100vh;
             left: 0;
             width: 100%;
-            z-index: zIndex(header);
             padding: $spacing-x2;
             flex-direction: column;
             gap: $spacing-x2;
@@ -33,6 +41,16 @@
             outline: 0.2rem solid var(--theme-color-primary);
             border-radius: $radius-x2;
             margin: $spacing-x1 0 0 0;
+            grid-template: 'links links' auto 'iconLinks themeToggle' auto / 1fr auto;
+            .navigation-list {
+                grid-area: links;
+            }
+            .navigation-icon-list {
+                grid-area: iconLinks;
+            }
+            .navigation-themeToggle {
+                grid-area: themeToggle;
+            }
             .navigation-list,
             .navigation-icon-list {
                 display: flex;
@@ -45,9 +63,13 @@
             .navigation-icon-list {
                 flex-direction: row;
             }
+
             @include desktop {
+                transition: none;
+                opacity: 1;
                 display: flex;
                 position: relative;
+                top: initial;
                 width: 100%;
                 flex-direction: row;
                 justify-content: flex-end;
@@ -55,6 +77,7 @@
                 background-color: transparent;
                 outline: none;
                 margin: 0;
+                box-shadow: none;
             }
         }
     }
@@ -63,7 +86,11 @@
 :host(.expanded) {
     .ps-header {
         .ps-header-main-navigation {
-            display: flex;
+            transition-duration: 0.5s;
+            top: 100%;
+            z-index: zIndex(header);
+            opacity: 1;
+            background-color: var(--theme-color-background-card-content);
         }
     }
 }

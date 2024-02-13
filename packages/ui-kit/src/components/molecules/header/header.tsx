@@ -8,14 +8,18 @@ import {
     State,
     Listen,
     Watch,
+    Element,
+    Method,
 } from '@stencil/core';
+
+import { KEYBOARD_KEY } from '@core/enums';
 import {
     BreakpointSizeType,
     ClassType,
     IconNames,
     LinkModel,
 } from '@core/types';
-import { getBreakpoint, getSocialIconName } from '@core/utils';
+import { getBreakpoint, getSocialIconName, WAIUtils } from '@core/utils';
 
 @Component({
     tag: 'ui-header',
@@ -24,6 +28,11 @@ import { getBreakpoint, getSocialIconName } from '@core/utils';
     scoped: true,
 })
 export class Header implements ComponentInterface {
+    private navigationRef: HTMLElement;
+    private menuButtonRef: HTMLUiButtonElement;
+
+    @Element() hostElement: HTMLUiHeaderElement;
+
     /** Specifies the logo image url */
     @Prop() readonly logoUrl?: string;
 
@@ -42,9 +51,10 @@ export class Header implements ComponentInterface {
     /** Specifies the alternative text for the dark mode label*/
     @Prop() readonly darkModeAccessibleLabel?: string;
 
-    @State() breakpoint: BreakpointSizeType;
+    /** Specifies if the menu mobile is expanded */
+    @Prop({ mutable: true }) expanded: boolean;
 
-    @State() expanded: boolean;
+    @State() breakpoint: BreakpointSizeType;
 
     @State() linksSocial: LinkModel[] = [];
 
@@ -56,12 +66,78 @@ export class Header implements ComponentInterface {
         }
     }
 
+    @Listen('keydown', { target: 'document' })
+    handleKeyDown(event: KeyboardEvent): void {
+        if (this.expanded) {
+            switch (event.key) {
+                case KEYBOARD_KEY.TAB:
+                    this.handlekeyTab(event);
+                    break;
+
+                case KEYBOARD_KEY.ESCAPE:
+                    this.closeMenu();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    @Listen('click', { target: 'document' })
+    handleClickOut(event: MouseEvent): void {
+        const element = event.target as HTMLElement;
+        if (
+            this.expanded &&
+            !this.menuButtonRef.contains(element) &&
+            !this.navigationRef.contains(element)
+        ) {
+            this.closeMenu();
+        }
+    }
+
+    /** Close mobile menu */
+    @Method()
+    closeMenu(): Promise<void> {
+        this.expanded = false;
+        this.menuButtonRef && this.menuButtonRef.focusNativeElement();
+        return Promise.resolve();
+    }
+
     @Watch('dataLinksSocial')
     private dataLinksSocialWatch(): void {
         this.linksSocial = this.dataLinksSocial
             ? JSON.parse(this.dataLinksSocial)
             : [];
     }
+
+    @Watch('expanded')
+    expandedtWatch(): void {
+        this.setAccessibleAttributes();
+    }
+
+    @Watch('breakpoint')
+    breakpointWatch(): void {
+        if (this.breakpoint === 'L' || this.breakpoint === 'XL') {
+            this.closeMenu();
+        }
+        this.setAccessibleAttributes();
+    }
+
+    private handlekeyTab(event: KeyboardEvent): void {
+        if (this.expanded) {
+            WAIUtils.manageCircularFocus(this.hostElement, event);
+        }
+    }
+
+    private setAccessibleAttributes = (): void => {
+        if (this.navigationRef) {
+            const condition =
+                this.expanded ||
+                this.breakpoint === 'L' ||
+                this.breakpoint === 'XL';
+            WAIUtils.manageTab(this.navigationRef, condition);
+        }
+    };
 
     private onPressHandler = (): void => {
         this.expanded = !this.expanded;
@@ -72,9 +148,18 @@ export class Header implements ComponentInterface {
         this.dataLinksSocialWatch();
     }
 
+    componentDidLoad(): void {
+        this.setAccessibleAttributes();
+    }
+
     private renderLinkList = (): JSX.Element => {
         return (
-            <nav class="ps-header-main-navigation">
+            <nav
+                class="ps-header-main-navigation"
+                ref={(el): void => {
+                    this.navigationRef = el;
+                }}
+            >
                 <div class="navigation-list">
                     <slot name="main-link"></slot>
                 </div>
@@ -108,6 +193,7 @@ export class Header implements ComponentInterface {
                     </ul>
                 )}
                 <ui-theme-toggle
+                    class="navigation-themeToggle"
                     darkMode={this.darkMode}
                     accessibleLabel={this.darkModeAccessibleLabel}
                 ></ui-theme-toggle>
@@ -141,6 +227,9 @@ export class Header implements ComponentInterface {
                                 class="menu-button"
                                 variant="tertiary"
                                 accessibleLabel={this.accesibleLabelMenu}
+                                ref={(el): void => {
+                                    this.menuButtonRef = el;
+                                }}
                                 onPress={this.onPressHandler}
                             >
                                 <ui-icon name={IconNames.menu}></ui-icon>

@@ -49,6 +49,7 @@ Header.args = {
     dataLinksSocial: jsonStringifyFormatted(linksSocial),
     darkMode: true,
     darkModeAccessibleLabel: 'Switch theme',
+    expanded: false,
 };
 
 Header.argTypes = {};
