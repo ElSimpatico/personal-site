@@ -10,6 +10,20 @@ import { CheckDetailEvent, IconNames } from "@core/types";
 export { ButtonVariantType } from "./components/atoms/button/types";
 export { CheckDetailEvent, IconNames } from "@core/types";
 export namespace Components {
+    interface UiAccordion {
+        /**
+          * Specifies the id or a string of space seperated ids of a component(s) that describes the accordion when is expanded.
+         */
+        "accessibleDescribedBy"?: string;
+        /**
+          * Specifies if accordion is expanded
+         */
+        "expanded"?: boolean;
+        /**
+          * Specifies if hide arrow
+         */
+        "hideArrow"?: boolean;
+    }
     interface UiAvatar {
         /**
           * Specifies the alternative text of image
@@ -171,6 +185,10 @@ export namespace Components {
         "value"?: string;
     }
 }
+export interface UiAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiAccordionElement;
+}
 export interface UiButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUiButtonElement;
@@ -184,6 +202,12 @@ export interface UiToggleCustomEvent<T> extends CustomEvent<T> {
     target: HTMLUiToggleElement;
 }
 declare global {
+    interface HTMLUiAccordionElement extends Components.UiAccordion, HTMLStencilElement {
+    }
+    var HTMLUiAccordionElement: {
+        prototype: HTMLUiAccordionElement;
+        new (): HTMLUiAccordionElement;
+    };
     interface HTMLUiAvatarElement extends Components.UiAvatar, HTMLStencilElement {
     }
     var HTMLUiAvatarElement: {
@@ -245,6 +269,7 @@ declare global {
         new (): HTMLUiToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "ui-accordion": HTMLUiAccordionElement;
         "ui-avatar": HTMLUiAvatarElement;
         "ui-button": HTMLUiButtonElement;
         "ui-card": HTMLUiCardElement;
@@ -258,6 +283,24 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface UiAccordion {
+        /**
+          * Specifies the id or a string of space seperated ids of a component(s) that describes the accordion when is expanded.
+         */
+        "accessibleDescribedBy"?: string;
+        /**
+          * Specifies if accordion is expanded
+         */
+        "expanded"?: boolean;
+        /**
+          * Specifies if hide arrow
+         */
+        "hideArrow"?: boolean;
+        /**
+          * onPressAccordionHeader event. Emits when press accordion header
+         */
+        "onPressAccordionHeader"?: (event: UiAccordionCustomEvent<void>) => void;
+    }
     interface UiAvatar {
         /**
           * Specifies the alternative text of image
@@ -423,6 +466,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "ui-accordion": UiAccordion;
         "ui-avatar": UiAvatar;
         "ui-button": UiButton;
         "ui-card": UiCard;
@@ -439,6 +483,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ui-accordion": LocalJSX.UiAccordion & JSXBase.HTMLAttributes<HTMLUiAccordionElement>;
             "ui-avatar": LocalJSX.UiAvatar & JSXBase.HTMLAttributes<HTMLUiAvatarElement>;
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
             "ui-card": LocalJSX.UiCard & JSXBase.HTMLAttributes<HTMLUiCardElement>;

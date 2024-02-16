@@ -16,6 +16,7 @@
 
 ### Used by
 
+ - [ui-accordion](../accordion)
  - [ui-footer](../../molecules/footer)
  - [ui-header](../../molecules/header)
  - [ui-theme-toggle](../../molecules/theme-toggle)
@@ -23,6 +24,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  ui-accordion --> ui-icon
   ui-footer --> ui-icon
   ui-header --> ui-icon
   ui-theme-toggle --> ui-icon

@@ -1,0 +1,81 @@
+:host {
+    display: block;
+
+    .accordion {
+        &__header {
+            position: relative;
+            width: 100%;
+            text-align: start;
+            cursor: pointer;
+            background-color: var(--theme-color-background-accordion-header);
+            border: $border-thickness solid;
+            border-radius: $radius-x2;
+            color: var(--theme-color-accordion-header);
+            padding: $spacing-x2
+                calc(var(--font-size-icon, 2.4rem) + $spacing-x2) $spacing-x2
+                $spacing-x2;
+            &:hover,
+            &:focus-visible {
+                background-color: var(
+                    --theme-color-background-accordion-header-active
+                );
+                color: var(--theme-color-accordion-header-active);
+            }
+        }
+
+        &__iconBox {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: $spacing-x1;
+        }
+        &__icon {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        &__body {
+            padding: 0 $spacing-x2;
+            border: $border-thickness solid;
+            border-radius: $radius-x2;
+            border-top: none;
+            border-bottom: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 0rem;
+        }
+    }
+}
+
+:host(.expanded) {
+    .accordion {
+        &__header {
+            background-color: var(
+                --theme-color-background-accordion-header-active
+            );
+            color: var(--theme-color-accordion-header-active);
+
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &__icon {
+            transform: rotate(-180deg);
+        }
+        &__body {
+            border-bottom: 0.2rem solid;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+}
+
+:host(.hideArrow) {
+    .accordion {
+        &__header {
+            padding: $spacing-x2;
+        }
+
+        &__iconBox {
+            display: none;
+        }
+    }
+}
