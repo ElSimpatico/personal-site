@@ -1,18 +1,20 @@
 @use 'sass:map';
 @use '../../abstracts/variables';
 
+@use './accordion-theme.scss';
 @use './card-theme.scss';
 
 @mixin define-variables {
-    --theme-color-primary: #{variables.$color-light-blue};
-    --theme-color-primary-hover: #{variables.$color-intense-blue};
+    --theme-color-primary: #{variables.$color-blue-light};
+    --theme-color-primary-hover: #{variables.$color-blue-intense};
     --theme-color-secondary: #{variables.$color-pink};
-    --theme-color-secondary-hover: #{variables.$color-intense-pink};
+    --theme-color-secondary-hover: #{variables.$color-pink-intense};
 
     --theme-color-background-body: #{variables.$color-white};
-    --theme-color-text-body: #{variables.$color-dark-charcoal};
+    --theme-color-text-body: #{variables.$color-grey-dark};
 
-    --theme-color-heading: #{variables.$color-midnight-blue};
+    --theme-color-heading: #{variables.$color-blue-midnight};
 
+    @include accordion-theme.define-variables;
     @include card-theme.define-variables;
 }

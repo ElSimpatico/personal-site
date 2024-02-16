@@ -8,7 +8,7 @@
             display: flex;
             padding: $spacing-x2;
             background-color: var(--theme-color-background-card-content);
-            border: 0.2rem solid var(--theme-color-primary);
+            border: $border-thickness solid var(--theme-color-primary);
             border-radius: $radius-x2;
             .header-logo {
                 width: var(--size-width-header-logo, $spacing-x10);
@@ -74,7 +74,7 @@
                 flex-direction: row;
                 justify-content: flex-end;
                 align-items: flex-end;
-                background-color: transparent;
+                background-color: $color-ghost;
                 outline: none;
                 margin: 0;
                 box-shadow: none;

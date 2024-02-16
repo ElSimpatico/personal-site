@@ -1,0 +1,8 @@
+@use '../../abstracts/variables';
+
+@mixin define-variables {
+    --theme-color-background-accordion-header: #{variables.$color-white};
+    --theme-color-accordion-header: #{variables.$color-grey-dark};
+    --theme-color-background-accordion-header-active: #{variables.$color-grey-medium};
+    --theme-color-accordion-header-active: #{variables.$color-grey-dark};
+}

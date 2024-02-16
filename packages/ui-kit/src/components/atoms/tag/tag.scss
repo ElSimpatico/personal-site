@@ -5,9 +5,9 @@
     line-height: inherit;
     font-family: inherit;
 
-    border: 0.1rem solid $color-dark-green;
+    border: $border-thickness solid $color-green-dark;
     padding-inline: $spacing-x2;
     border-radius: $radius-x12;
-    background-color: $color-light-green;
-    color: $color-dark-green;
+    background-color: $color-green-light;
+    color: $color-green-dark;
 }

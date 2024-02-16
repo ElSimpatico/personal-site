@@ -53,7 +53,7 @@
             var(--theme-color-primary),
             var(--theme-color-secondary)
         );
-        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: variables.$color-ghost;
         -webkit-background-clip: text;
     }
 }

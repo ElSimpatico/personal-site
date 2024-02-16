@@ -5,12 +5,35 @@ $breakpoints: (
     XL: 1440px,
 );
 
-$zIndexLevels: (
-    modal: 9000,
-    overlay: 8000,
-    dropdown: 7000,
-    header: 6000,
-);
+$color-blue-light: #4fa0ff;
+$color-blue-intense: #75b6ff;
+$color-blue-midnight: #42446e;
+$color-pink: #ff63dd;
+$color-pink-intense: #ff94e8;
+$color-green-dark: #015b0a;
+$color-green-light: #d7ffe0;
+$color-black: #000000;
+$color-black-deep: #0e0e0e;
+$color-black-medium: #232326;
+$color-black-dark: #424345;
+$color-grey-dark: #595959;
+$color-grey-medium: #cccccc;
+$color-grey-lighter: #a7a7a7;
+$color-gray-lightest: #bebec3;
+$color-grey-light: #f3f4f6;
+$color-white: #ffffff;
+$color-ghost: transparent;
+
+$border-thickness: 0.2rem;
+
+$font-regular: DSRegular;
+$font-bold: DSBold;
+$font-regular: DSRegular;
+
+$radius-x1: 0.2rem;
+$radius-x2: 0.4rem;
+$radius-x12: 2.4rem;
+$radius-circle: 50%;
 
 $spacing-x1: 0.8rem;
 $spacing-x2: 1.6rem;
@@ -23,30 +46,11 @@ $spacing-x8: 8rem;
 $spacing-x9: 8.8rem;
 $spacing-x10: 9.6rem;
 
-$radius-x1: 0.2rem;
-$radius-x2: 0.4rem;
-$radius-x12: 2.4rem;
-$radius-circle: 50%;
-
 $opacity-50: 0.5;
 
-$color-light-blue: #4fa0ff;
-$color-pink: #ff63dd;
-$color-black: #000000;
-$color-dark-black: #0e0e0e;
-$color-dark-grey: #232326;
-$color-grey: #bebec3;
-$color-medium-grey: #424345;
-$color-white: #ffffff;
-$color-intense-blue: #75b6ff;
-$color-intense-pink: #ff94e8;
-$color-light-green: #d7ffe0;
-$color-dark-green: #015b0a;
-$color-midnight-blue: #42446e;
-$color-light-grey: #cccccc;
-$color-charcoal: #a7a7a7;
-$color-dark-charcoal: #595959;
-
-$font-regular: DSRegular;
-$font-bold: DSBold;
-$font-regular: DSRegular;
+$zIndexLevels: (
+    modal: 9000,
+    overlay: 8000,
+    dropdown: 7000,
+    header: 6000,
+);

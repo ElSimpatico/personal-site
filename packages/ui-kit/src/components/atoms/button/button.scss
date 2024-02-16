@@ -4,10 +4,10 @@
 
     .ps-button {
         display: inline-flex;
-        border: 0.1rem solid transparent;
+        border: $border-thickness solid $color-ghost;
         padding: $spacing-x1 $spacing-x2;
         cursor: pointer;
-        color: $color-dark-black;
+        color: $color-black-deep;
         text-decoration: none;
         font-size: inherit;
         line-height: inherit;
@@ -54,7 +54,7 @@
 :host(.tertiary) {
     .ps-button {
         color: var(--theme-color-primary);
-        background-color: transparent;
+        background-color: $color-ghost;
         border-color: var(--theme-color-primary);
     }
     &:hover {
