@@ -1,0 +1,95 @@
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/mixins.scss';
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/variables.scss';
+
+.aboutme {
+    &__section {
+        margin: $spacing-x2 0;
+    }
+    &__title {
+        color: var(--theme-color-heading);
+        font-weight: bold;
+        font-size: 4.8rem;
+    }
+    &__description {
+        width: 100%;
+    }
+
+    &__listItem {
+        margin: $spacing-x2 0;
+    }
+
+    @include desktop {
+        &__description {
+            width: 60%;
+        }
+    }
+}
+
+.mainSection {
+    display: grid;
+    grid-template: 'title' auto 'link' auto 'description' auto / 1fr auto;
+    gap: $spacing-x2;
+
+    @include desktop {
+        grid-template: 'title link' auto 'description description' auto / 1fr auto;
+    }
+
+    &__title {
+        grid-area: title;
+    }
+    &__link {
+        grid-area: link;
+    }
+    &__description {
+        grid-area: description;
+    }
+}
+
+.boxInfo {
+    display: grid;
+    grid-template: 'title title' auto 'timeTag timeTag' auto 'timeRange timeRange' auto 'tags tags' auto / 1fr auto;
+    gap: $spacing-x2;
+    // padding: 0 0 $spacing-x3 0;
+    // margin: $spacing-x3 0;
+    // border-bottom: 0.1rem solid;
+
+    &__title {
+        font-size: 3.2rem;
+        grid-area: title;
+    }
+    &__timeTag {
+        grid-area: timeTag;
+    }
+    &__timeRange {
+        grid-area: timeRange;
+    }
+    &__taglist {
+        grid-area: tags;
+        display: flex;
+        flex-wrap: wrap;
+        margin: calc(-1 * $spacing-x2) 0 0 calc(-1 * $spacing-x2);
+    }
+    &__taglistitem {
+        padding: $spacing-x2 0 0 $spacing-x2;
+    }
+
+    @include desktop {
+        grid-template: 'title timeTag' auto 'tags timeRange' auto / 1fr auto;
+        &__timeTag,
+        &__timeRange {
+            place-self: end;
+        }
+    }
+}
+
+.boxDescription {
+    margin: $spacing-x2 0;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    &__icon {
+        margin: 0 $spacing-x1 0 0;
+    }
+}
