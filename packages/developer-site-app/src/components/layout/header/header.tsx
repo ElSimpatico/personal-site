@@ -1,21 +1,24 @@
-import React, { ReactElement, useMemo } from 'react';
-
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useQuery } from '@apollo/client';
+import { Locale } from 'contentful';
 
 import { LinkModel, UiHeader } from '@personal-site/ui-kit-react';
 
-import { GET_HEADER } from './queries';
-import { HeaderContent, parseHeaderContent } from './adapter';
+import { useController } from './useController';
+
 import './header.scss';
 
 export function Header(): ReactElement {
-    const { loading, data } = useQuery(GET_HEADER);
-
-    const headerContent = useMemo<HeaderContent>(() => {
-        return parseHeaderContent(data);
-    }, [data]);
+    const {
+        headerRef,
+        loading,
+        locales,
+        locale,
+        view,
+        onCloseMenu,
+        onSelectLanguage,
+    } = useController();
 
     if (loading) {
         return null;
@@ -25,14 +28,14 @@ export function Header(): ReactElement {
         <div>
             <UiHeader
                 class="main-header"
-                logoUrl={headerContent.logoUrl}
-                logoAlt={headerContent.logoAlt}
+                logoUrl={view.logoUrl}
+                logoAlt={view.logoAlt}
                 darkMode
-                darkModeLabel={headerContent.darkModeLabel}
-                darkModeAccessibleLabel={headerContent.darkModeAccessibleLabel}
-                dataLinksSocial={JSON.stringify(headerContent.socialLinks)}
+                darkModeAccessibleLabel={view.darkModeAccessibleLabel}
+                dataLinksSocial={JSON.stringify(view.socialLinks)}
+                ref={headerRef}
             >
-                {(headerContent.mainLinks || []).map(
+                {(view.mainLinks || []).map(
                     (link: LinkModel, index: number) => {
                         return (
                             <Link
@@ -41,11 +44,31 @@ export function Header(): ReactElement {
                                 className="router-link"
                                 to={link.href}
                                 arria-label={link.accesibleLabel}
+                                onClick={onCloseMenu}
                             >
                                 {link.label}
                             </Link>
                         );
                     },
+                )}
+
+                {(locales || []).length > 0 && (
+                    <select
+                        slot="main-link"
+                        onChange={onSelectLanguage}
+                        defaultValue={locale.code}
+                    >
+                        {locales.map((localeOption: Locale, index: number) => {
+                            return (
+                                <option
+                                    key={`language_option_${index}`}
+                                    value={localeOption.code}
+                                >
+                                    {localeOption.name}
+                                </option>
+                            );
+                        })}
+                    </select>
                 )}
             </UiHeader>
         </div>

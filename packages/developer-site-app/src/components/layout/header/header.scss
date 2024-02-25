@@ -1,12 +1,13 @@
 @import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/mixins.scss';
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/variables.scss';
 
 .main-header {
-    margin: var(--spacing-x2) 0;
+    margin: $spacing-x2 0;
     @include tablet() {
-        margin: var(--spacing-x3) 0;
+        margin: $spacing-x3 0;
     }
     @include desktop() {
-        margin: var(--spacing-x4) 0;
+        margin: $spacing-x4 0;
     }
 }
 .router-link {
@@ -16,6 +17,6 @@
     line-height: inherit;
     font-family: inherit;
     text-decoration: none;
-    padding: 0 0 calc(var(--spacing-x1) / 2) 0;
+    padding: 0 0 calc($spacing-x1 / 2) 0;
     border-bottom: 0.2rem solid;
 }
