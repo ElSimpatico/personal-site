@@ -1,45 +1,19 @@
-import React, { ReactElement, useMemo } from 'react';
-import { useQuery } from '@apollo/client';
+import React, { ReactElement } from 'react';
+
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { MARKS } from '@contentful/rich-text-types';
 
 import { UiAvatar, UiCard, UiLink } from '@personal-site/ui-kit-react';
-import { GET_HOME, GET_HOME_PROJECTS } from './queries';
+
+import { ImageItem, ProjectItem } from '@core/adapter';
+
+import { useController } from './useController';
 
 import './home.scss';
-import {
-    HomeMainContent,
-    HomeProjects,
-    ImageItem,
-    ProjectItem,
-    parseHomeMain,
-    parseHomeProjects,
-} from './adapter';
 
 export function Home(): ReactElement {
-    const { loading: mainLoading, data: mainData } = useQuery(GET_HOME);
-    const { loading: projectsLoading, data: projectsData } =
-        useQuery(GET_HOME_PROJECTS);
+    const { descriptionOptions, loading, view } = useController();
 
-    const options = useMemo(() => {
-        return {
-            renderMark: {
-                [MARKS.BOLD]: (text) => (
-                    <span className="highlighted-text">{text}</span>
-                ),
-            },
-        };
-    }, []);
-
-    const mainContent = useMemo<HomeMainContent>(() => {
-        return parseHomeMain(mainData);
-    }, [mainData]);
-
-    const projectsContent = useMemo<HomeProjects>(() => {
-        return parseHomeProjects(projectsData);
-    }, [projectsData]);
-
-    if (mainLoading || projectsLoading) {
+    if (loading) {
         return null;
     }
 
@@ -51,29 +25,27 @@ export function Home(): ReactElement {
             >
                 <UiAvatar
                     class="business-card__avatar"
-                    imageUrl={mainContent?.avatarImageUrl}
-                    imageAlt={mainContent?.avatarImageAlt}
+                    imageUrl={view.avatar.url}
+                    imageAlt={view.avatar.alt}
                 ></UiAvatar>
                 <div className="business-card__text-container">
                     {documentToReactComponents(
-                        mainContent.mainDescription,
-                        options,
+                        view.description,
+                        descriptionOptions,
                     )}
                 </div>
             </section>
-            {mainContent?.technologySection && (
+            {view.technologies && (
                 <section className="home__technologies">
                     <div className="text-container">
-                        <h2 className="title">
-                            {mainContent.technologySection?.title}
-                        </h2>
+                        <h2 className="title">{view.technologies.title}</h2>
                         <p className="description">
-                            {mainContent.technologySection?.description}
+                            {view.technologies.description}
                         </p>
                     </div>
 
                     <ul className="images-list">
-                        {(mainContent.technologySection?.items || []).map(
+                        {(view.technologies.items || []).map(
                             (item: ImageItem, index: number) => {
                                 return (
                                     <li
@@ -81,8 +53,8 @@ export function Home(): ReactElement {
                                         key={`tech-item__${index}`}
                                     >
                                         <img
-                                            src={item.imageUrl}
-                                            alt={item.imageAlt}
+                                            src={item.url}
+                                            alt={item.alt}
                                         ></img>
                                     </li>
                                 );
@@ -91,18 +63,18 @@ export function Home(): ReactElement {
                     </ul>
                 </section>
             )}
-            {projectsContent && (
+            {view.projects && (
                 <section className="home__projects">
                     <div className="text-container">
-                        <h2 className="title">{projectsContent.title}</h2>
+                        <h2 className="title">{view.projects.title}</h2>
                         <p className="description">
-                            {projectsContent?.description}
+                            {view.projects.description}
                         </p>
                     </div>
 
-                    {(projectsContent.items || []).length > 0 && (
+                    {(view.projects.items || []).length > 0 && (
                         <ul className="projects-list">
-                            {projectsContent.items.map(
+                            {view.projects.items.map(
                                 (item: ProjectItem, index: number) => {
                                     return (
                                         <li
@@ -110,8 +82,8 @@ export function Home(): ReactElement {
                                             key={`project-item__${index}`}
                                         >
                                             <UiCard
-                                                imageUrl={item.imageUrl}
-                                                imageAlt={item.imageAlt}
+                                                imageUrl={item.thumbnail.url}
+                                                imageAlt={item.thumbnail.alt}
                                             >
                                                 <div slot="card-body">
                                                     <h3>{item.name}</h3>
@@ -120,9 +92,15 @@ export function Home(): ReactElement {
                                                     )}
                                                     <div>
                                                         <UiLink
-                                                            url={item.liveUrl}
+                                                            url={
+                                                                item.liveLink
+                                                                    .href
+                                                            }
                                                         >
-                                                            {item.liveLabel}
+                                                            {
+                                                                item.liveLink
+                                                                    .label
+                                                            }
                                                         </UiLink>
                                                     </div>
                                                 </div>
