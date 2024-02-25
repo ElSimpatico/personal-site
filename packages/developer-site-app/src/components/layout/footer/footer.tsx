@@ -1,30 +1,15 @@
-import React, { ReactElement, useMemo } from 'react';
-import { useQuery } from '@apollo/client';
+import React, { ReactElement } from 'react';
+
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { MARKS } from '@contentful/rich-text-types';
 
 import { UiFooter } from '@personal-site/ui-kit-react';
 
-import { GET_FOOTER } from './queries';
-import { FooterContent, parseFooterContent } from './adapter';
+import { useController } from './useController';
+
 import './footer.scss';
 
 export function Footer(): ReactElement {
-    const { loading, data } = useQuery(GET_FOOTER);
-
-    const options = useMemo(() => {
-        return {
-            renderMark: {
-                [MARKS.BOLD]: (text) => (
-                    <span className="highlighted-text">{text}</span>
-                ),
-            },
-        };
-    }, []);
-
-    const footerContent = useMemo<FooterContent>(() => {
-        return parseFooterContent(data);
-    }, [data]);
+    const { loading, view, ownerOptions } = useController();
 
     if (loading) {
         return null;
@@ -33,15 +18,12 @@ export function Footer(): ReactElement {
     return (
         <UiFooter
             class="footer"
-            logoUrl={footerContent.logoUrl}
-            logoAlt={footerContent.logoAlt}
-            dataLinksSocial={JSON.stringify(footerContent.socialLinks)}
+            logoUrl={view.logoUrl}
+            logoAlt={view.logoAlt}
+            dataLinksSocial={JSON.stringify(view.socialLinks)}
         >
             <div slot="owner">
-                {documentToReactComponents(
-                    footerContent.ownerDescription,
-                    options,
-                )}
+                {documentToReactComponents(view.ownerDescription, ownerOptions)}
             </div>
         </UiFooter>
     );

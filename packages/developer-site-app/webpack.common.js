@@ -40,6 +40,8 @@ module.exports = (_env, options) => {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
             alias: {
                 '@components': join(srcDir, 'components'),
+                '@context': join(srcDir, 'context'),
+                '@core': join(srcDir, 'core'),
                 '@pages': join(srcDir, 'pages'),
             },
         },

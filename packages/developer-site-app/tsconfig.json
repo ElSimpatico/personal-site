@@ -8,6 +8,8 @@
         "baseUrl": "./",
         "paths": {
             "@components": ["src/components"],
+            "@context": ["src/context"],
+            "@core/*": ["src/core/*"],
             "@pages": ["src/pages"]
         }
     }

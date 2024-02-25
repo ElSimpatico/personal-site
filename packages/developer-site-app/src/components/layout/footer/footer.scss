@@ -1,3 +1,5 @@
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/variables.scss';
+
 .footer {
-    margin: var(--spacing-x3) 0;
+    margin: $spacing-x3 0;
 }
