@@ -7,6 +7,7 @@ import type { JSX } from '@personal-site/ui-kit';
 
 
 
+export const UiAccordion = /*@__PURE__*/createReactComponent<JSX.UiAccordion, HTMLUiAccordionElement>('ui-accordion');
 export const UiAvatar = /*@__PURE__*/createReactComponent<JSX.UiAvatar, HTMLUiAvatarElement>('ui-avatar');
 export const UiButton = /*@__PURE__*/createReactComponent<JSX.UiButton, HTMLUiButtonElement>('ui-button');
 export const UiCard = /*@__PURE__*/createReactComponent<JSX.UiCard, HTMLUiCardElement>('ui-card');

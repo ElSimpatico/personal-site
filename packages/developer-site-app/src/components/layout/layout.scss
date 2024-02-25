@@ -1,13 +1,14 @@
 @import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/mixins.scss';
+@import '~@personal-site/ui-kit/dist/ui-kit/scss/abstracts/variables.scss';
 
 .layout-container {
-    padding: 0 var(--spacing-x2);
+    padding: 0 $spacing-x3;
     max-width: 140rem;
     margin: 0 auto;
     @include tablet() {
-        padding: 0 var(--spacing-x3);
+        padding: 0 $spacing-x4;
     }
     @include desktop() {
-        padding: 0 var(--spacing-x4);
+        padding: 0 $spacing-x5;
     }
 }
