@@ -1,9 +1,9 @@
 import { ContentfulClient, TypeFooterFields } from '@core/content';
 import { ContentService } from '@core/services/base';
 
-export type FooterContentType = 'footer';
+type FooterContentType = 'footer';
 
-export type FooterSkeleton = {
+type FooterSkeleton = {
     contentTypeId: FooterContentType;
     fields: TypeFooterFields;
 };

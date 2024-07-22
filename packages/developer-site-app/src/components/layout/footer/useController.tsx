@@ -4,13 +4,13 @@ import { MARKS } from '@contentful/rich-text-types';
 
 import { FooterView, defaulFooterView, AdapterFactory } from '@core/adapter';
 import { TypeFooterFields } from '@core/content';
-import { ContentServiceFactory } from '@core/services';
+import { ContentServiceFactory, Services } from '@core/services';
 
 import { useLanguage } from '@context';
 
 export function useController() {
-    const service = ContentServiceFactory.create('footer');
-    const adapter = AdapterFactory.create('footer');
+    const service = ContentServiceFactory.create(Services.FOOTER);
+    const adapter = AdapterFactory.create(Services.FOOTER);
 
     const [view, setView] = useState<FooterView>(defaulFooterView);
     const [loading, setLoading] = useState<Boolean>(true);
@@ -31,11 +31,8 @@ export function useController() {
         if (!loading) {
             setLoading(true);
         }
-        const content = (await service.getContent(
-            localeCode,
-        )) as TypeFooterFields;
-
-        const viewModel = adapter.adapt(content) as FooterView;
+        const content = await service.getContent(localeCode);
+        const viewModel = adapter.adapt(content);
         setView({ ...viewModel });
         setLoading(false);
     }, []);

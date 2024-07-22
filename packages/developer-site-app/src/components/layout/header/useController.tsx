@@ -4,13 +4,13 @@ import { HeaderView, defaultHeaderView, AdapterFactory } from '@core/adapter';
 
 import { TypeHeaderFields } from '@core/content';
 
-import { ContentServiceFactory } from '@core/services';
+import { ContentServiceFactory, Services } from '@core/services';
 
 import { useLanguage } from '@context';
 
 export function useController() {
-    const service = ContentServiceFactory.create('header');
-    const adapter = AdapterFactory.create('header');
+    const service = ContentServiceFactory.create(Services.HEADER);
+    const adapter = AdapterFactory.create(Services.HEADER);
 
     const headerRef = useRef<HTMLUiHeaderElement>(null);
 
@@ -23,10 +23,8 @@ export function useController() {
         if (!loading) {
             setLoading(true);
         }
-        const content = (await service.getContent(
-            localeCode,
-        )) as TypeHeaderFields;
-        const viewModel = (await adapter.adapt(content)) as HeaderView;
+        const content = await service.getContent(localeCode);
+        const viewModel = await adapter.adapt(content);
 
         setView({ ...viewModel });
         setLoading(false);

@@ -2,28 +2,42 @@ import { FooterContentService } from './footer-content';
 import { HeaderContentService } from './header-content';
 import { HomeContentService } from './home-content';
 import { LocalesContentService } from './locales-content';
+import { AboutContentService } from './about-content';
 
-type ServiceType = 'footer' | 'header' | 'home' | 'locales';
+export enum Services {
+    HEADER = 'header',
+    FOOTER = 'footer',
+    HOME = 'home',
+    LOCALES = 'locales',
+    ABOUT = 'about',
+}
 
-type ServiceInstanceType =
+export type ServiceInstanceType =
     | FooterContentService
     | HeaderContentService
     | HomeContentService
-    | LocalesContentService;
+    | LocalesContentService
+    | AboutContentService;
+
+const ServiceContentMap: Record<Services, ServiceInstanceType> = {
+    header: new HeaderContentService(),
+    footer: new FooterContentService(),
+    home: new HomeContentService(),
+    about: new AboutContentService(),
+    locales: new LocalesContentService(),
+};
 
 export class ContentServiceFactory {
-    static create(type: ServiceType): ServiceInstanceType {
-        switch (type) {
-            case 'footer':
-                return new FooterContentService();
-            case 'header':
-                return new HeaderContentService();
-            case 'home':
-                return new HomeContentService();
-            case 'locales':
-                return new LocalesContentService();
-            default:
-                return null;
+    static create(type: Services.HEADER): HeaderContentService;
+    static create(type: Services.FOOTER): FooterContentService;
+    static create(type: Services.HOME): HomeContentService;
+    static create(type: Services.ABOUT): AboutContentService;
+    static create(type: Services.LOCALES): LocalesContentService;
+    static create(type: Services): ServiceInstanceType {
+        const service = ServiceContentMap[type];
+        if (!service) {
+            throw new Error(`Unkonw service content type ${type}`);
         }
+        return service;
     }
 }

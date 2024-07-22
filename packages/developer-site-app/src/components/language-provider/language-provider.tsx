@@ -2,14 +2,14 @@ import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 import { Locale } from 'contentful';
 
 import { Language, LanguageContext } from '@context';
-import { ContentServiceFactory } from '@core/services';
+import { ContentServiceFactory, Services } from '@core/services';
 
 export function LanguageProvider({ children }): ReactElement {
     const [language, setLanguage] = useState<Language>(null);
 
     const initialize = useCallback(async (): Promise<void> => {
-        const service = ContentServiceFactory.create('locales');
-        const locales = (await service.getContent()) as Locale[];
+        const service = ContentServiceFactory.create(Services.LOCALES);
+        const locales = await service.getContent();
         const currentLocale = locales.find((locale) => locale.default);
 
         setLanguage({ locale: currentLocale, locales });

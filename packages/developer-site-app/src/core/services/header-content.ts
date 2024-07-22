@@ -2,9 +2,9 @@ import { ContentfulClient } from '../content/client';
 import { TypeHeaderFields } from '../content';
 import { ContentService } from './base';
 
-export type HeaderContentType = 'header';
+type HeaderContentType = 'header';
 
-export type HeaderSkeleton = {
+type HeaderSkeleton = {
     contentTypeId: HeaderContentType;
     fields: TypeHeaderFields;
 };

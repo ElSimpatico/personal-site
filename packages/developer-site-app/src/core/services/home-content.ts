@@ -1,9 +1,9 @@
 import { ContentfulClient, TypeHomeFields } from '@core/content';
 import { ContentService } from '@core/services/base';
 
-export type HomeContentType = 'home';
+type HomeContentType = 'home';
 
-export type HomeSkeleton = {
+type HomeSkeleton = {
     contentTypeId: HomeContentType;
     fields: TypeHomeFields;
 };
