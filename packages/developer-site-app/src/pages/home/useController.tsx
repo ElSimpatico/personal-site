@@ -3,14 +3,13 @@ import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { MARKS } from '@contentful/rich-text-types';
 
 import { HomeView, defaultHomeView, AdapterFactory } from '@core/adapter';
-import { TypeHomeFields } from '@core/content';
-import { ContentServiceFactory } from '@core/services';
+import { ContentServiceFactory, Services } from '@core/services';
 
 import { useLanguage } from '@context';
 
 export function useController() {
-    const service = ContentServiceFactory.create('home');
-    const adapter = AdapterFactory.create('home');
+    const service = ContentServiceFactory.create(Services.HOME);
+    const adapter = AdapterFactory.create(Services.HOME);
 
     const [view, setView] = useState<HomeView>(defaultHomeView);
     const [loading, setLoading] = useState<Boolean>(true);
@@ -31,10 +30,8 @@ export function useController() {
         if (!loading) {
             setLoading(true);
         }
-        const content = (await service.getContent(
-            localeCode,
-        )) as TypeHomeFields;
-        const viewModel = adapter.adapt(content) as HomeView;
+        const content = await service.getContent(localeCode);
+        const viewModel = adapter.adapt(content);
 
         setView({ ...viewModel });
         setLoading(false);
