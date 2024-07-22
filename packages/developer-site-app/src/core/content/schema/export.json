@@ -45,7 +45,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/link"
       },
       "displayField": "label",
       "name": "Link",
@@ -164,7 +165,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/header"
       },
       "displayField": "slugId",
       "name": "Header",
@@ -335,7 +337,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/home"
       },
       "displayField": "slugId",
       "name": "Home",
@@ -577,7 +580,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/project"
       },
       "displayField": "name",
       "name": "Project",
@@ -723,7 +727,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/page"
       },
       "displayField": "slugId",
       "name": "Page",
@@ -812,7 +817,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/pageSection"
       },
       "displayField": "title",
       "name": "PageSection",
@@ -904,7 +910,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/image"
       },
       "displayField": null,
       "name": "Image",
@@ -974,7 +981,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/footer"
       },
       "displayField": "slugId",
       "name": "Footer",
@@ -1073,6 +1081,394 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "about",
+        "type": "ContentType",
+        "createdAt": "2024-07-15T18:19:06.493Z",
+        "updatedAt": "2024-07-15T19:21:25.301Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-07-15T19:21:25.301Z",
+        "firstPublishedAt": "2024-07-15T18:19:06.863Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/about"
+      },
+      "displayField": "slugId",
+      "name": "About",
+      "description": "",
+      "fields": [
+        {
+          "id": "slugId",
+          "name": "slugId",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "description",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "experienceTitle",
+          "name": "experienceTitle",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "curriculum",
+          "name": "curriculum",
+          "type": "Link",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "pdfdocument"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "jobPositions",
+          "name": "jobPositions",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "experience"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "education",
+          "name": "education",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "experience"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "educationTitle",
+          "name": "educationTitle",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "experience",
+        "type": "ContentType",
+        "createdAt": "2024-07-15T18:50:03.230Z",
+        "updatedAt": "2024-07-15T19:13:56.301Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2024-07-15T19:13:56.301Z",
+        "firstPublishedAt": "2024-07-15T18:50:03.580Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/content_types/experience"
+      },
+      "displayField": "titlte",
+      "name": "Experience",
+      "description": "",
+      "fields": [
+        {
+          "id": "titlte",
+          "name": "titlte",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "time",
+          "name": "time",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Tiempo completo",
+                "Tiempo parcial",
+                "Full time",
+                "Partial time"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "companyName",
+          "name": "companyName",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "location",
+          "name": "location",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "description",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code",
+                "superscript",
+                "subscript",
+                "strikethrough"
+              ],
+              "message": "Only bold, italic, underline, code, superscript, subscript, and strikethrough marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "table",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "dateFrom",
+          "name": "dateFrom",
+          "type": "Date",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "dateTo",
+          "name": "dateTo",
+          "type": "Date",
+          "localized": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -1757,12 +2153,189 @@
           "widgetNamespace": "builtin"
         }
       ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "yoaw30xvr8ys",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2024-07-15T18:19:07.094Z",
+        "createdBy": {
+          "sys": {
+            "id": "5qAcj2ETIFnuKxy59myqF2",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-07-15T19:21:26.040Z",
+        "updatedBy": {
+          "sys": {
+            "id": "5qAcj2ETIFnuKxy59myqF2",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "about",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "slugId",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "experienceTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "curriculum",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "jobPositions",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "education",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "educationTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "yoaw30xvr8ys",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 8,
+        "createdAt": "2024-07-15T18:50:03.772Z",
+        "createdBy": {
+          "sys": {
+            "id": "5qAcj2ETIFnuKxy59myqF2",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-07-15T19:13:56.881Z",
+        "updatedBy": {
+          "sys": {
+            "id": "5qAcj2ETIFnuKxy59myqF2",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "experience",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "titlte",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "time",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "companyName",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "dateFrom",
+          "settings": {
+            "ampm": "24",
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "dateTo",
+          "settings": {
+            "ampm": "24",
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        }
+      ]
     }
   ],
   "entries": [
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -1818,7 +2391,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/60Euuqci4XxmnIhp1aGraF"
       },
       "fields": {
         "href": {
@@ -1840,6 +2414,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -1895,7 +2471,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/18y0CWeHnG5Z9zFXpCdqSS"
       },
       "fields": {
         "href": {
@@ -1914,6 +2491,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -1969,7 +2548,8 @@
             "linkType": "ContentType",
             "id": "header"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/1D3ngZlljvzFkOhj8Ov5Oq"
       },
       "fields": {
         "mainLinks": {
@@ -2036,6 +2616,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2091,7 +2673,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/1pIqIYWQR5Kw0q9h9U4Bu8"
       },
       "fields": {
         "href": {
@@ -2116,6 +2699,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2171,7 +2756,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/1N9oLeZ9CEG0gmfeYDw9PR"
       },
       "fields": {
         "href": {
@@ -2196,6 +2782,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2251,7 +2839,8 @@
             "linkType": "ContentType",
             "id": "home"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/5V5MT1rGqMmrA7Ct8r3iXa"
       },
       "fields": {
         "slugId": {
@@ -2521,6 +3110,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2534,7 +3125,7 @@
         "id": "gs8iXWMFrSbh27FZHgtBw",
         "type": "Entry",
         "createdAt": "2023-08-03T14:08:38.194Z",
-        "updatedAt": "2023-11-03T23:02:13.602Z",
+        "updatedAt": "2024-02-25T13:20:31.118Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2542,8 +3133,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 36,
-        "publishedAt": "2023-08-03T14:20:56.079Z",
+        "publishedVersion": 48,
+        "publishedAt": "2024-02-25T13:20:31.118Z",
         "firstPublishedAt": "2023-08-03T14:20:56.079Z",
         "createdBy": {
           "sys": {
@@ -2559,8 +3150,8 @@
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
         },
-        "publishedCounter": 1,
-        "version": 41,
+        "publishedCounter": 3,
+        "version": 49,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2576,52 +3167,97 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/gs8iXWMFrSbh27FZHgtBw"
       },
       "fields": {
         "name": {
           "es-ES": "Agencia Catalana de Turismo"
         },
         "description": {
-          "es-ES": {
-            "nodeType": "document",
+          "en-GB": {
             "data": {
             },
             "content": [
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Migración del portal web de la Agencia Catalana de Turismo. Desarrollo de librería de componentes para la construcción de todas las interfaces de usuario.",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "Migration of the Catalan Tourism Agency's web portal. Development of component library for the construction of all user interfaces.",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Stack: Stencil.js, Javascript, Typescript.",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "Stack: Stencil.js, Javascript, Typescript.",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               }
-            ]
+            ],
+            "nodeType": "document"
+          },
+          "es-ES": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Migración del portal web de la Agencia Catalana de Turismo. Desarrollo de librería de componentes para la construcción de todas las interfaces de usuario.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Stack: Stencil.js, Javascript, Typescript.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
           }
         },
         "thumbnail": {
+          "en-GB": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6O8Z0tEEg0O9MB3XBTEPA4"
+            }
+          },
           "es-ES": {
             "sys": {
               "type": "Link",
@@ -2631,6 +3267,13 @@
           }
         },
         "liveLink": {
+          "en-GB": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "25dl1DM6jw7xjT73YHkum9"
+            }
+          },
           "es-ES": {
             "sys": {
               "type": "Link",
@@ -2644,6 +3287,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2657,7 +3302,7 @@
         "id": "25dl1DM6jw7xjT73YHkum9",
         "type": "Entry",
         "createdAt": "2023-08-03T14:19:37.346Z",
-        "updatedAt": "2023-08-03T14:20:45.659Z",
+        "updatedAt": "2024-02-25T13:20:14.134Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2665,8 +3310,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 6,
-        "publishedAt": "2023-08-03T14:20:45.659Z",
+        "publishedVersion": 9,
+        "publishedAt": "2024-02-25T13:20:14.134Z",
         "firstPublishedAt": "2023-08-03T14:20:45.659Z",
         "createdBy": {
           "sys": {
@@ -2682,8 +3327,8 @@
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
         },
-        "publishedCounter": 1,
-        "version": 7,
+        "publishedCounter": 2,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2699,16 +3344,19 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/25dl1DM6jw7xjT73YHkum9"
       },
       "fields": {
         "href": {
           "es-ES": "https://www.catalunya.com/"
         },
         "label": {
+          "en-GB": "Ir a la pagina de Catalunya.com",
           "es-ES": "Catalunya"
         },
         "accessibleLabel": {
+          "en-GB": "Go to the Catalunya.com website",
           "es-ES": "Ir a la pagina de Catalunya.com"
         },
         "target": {
@@ -2719,6 +3367,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2774,7 +3424,8 @@
             "linkType": "ContentType",
             "id": "page"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/5INeZwitUQhgljqixJujP7"
       },
       "fields": {
         "slugId": {
@@ -2796,6 +3447,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2851,7 +3504,8 @@
             "linkType": "ContentType",
             "id": "pageSection"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/7xdGe2SoiKgAylo2DHR76b"
       },
       "fields": {
         "title": {
@@ -2876,6 +3530,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -2931,7 +3587,8 @@
             "linkType": "ContentType",
             "id": "image"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/6J84Ue0JJfs7i1gY4PGn0f"
       },
       "fields": {
         "media": {
@@ -2948,6 +3605,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3003,7 +3662,8 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/2ORWDgVRorcmnSG2Hzf3GB"
       },
       "fields": {
         "name": {
@@ -3122,6 +3782,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3177,7 +3839,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/jamAVBo2zmxJIqsBvR9bU"
       },
       "fields": {
         "href": {
@@ -3197,6 +3860,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3252,7 +3917,8 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/2IRyN4MqW7s5vT8gnIFmrp"
       },
       "fields": {
         "name": {
@@ -3355,6 +4021,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3410,7 +4078,8 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/6vtLS0j52QEMwvhH9ieK7K"
       },
       "fields": {
         "name": {
@@ -3514,6 +4183,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3569,7 +4240,8 @@
             "linkType": "ContentType",
             "id": "link"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/1ts2fBz9OXT00fjlD3KAHC"
       },
       "fields": {
         "href": {
@@ -3591,6 +4263,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3646,7 +4320,8 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/7mcPGKJeUAGRhBgJWP6zZr"
       },
       "fields": {
         "name": {
@@ -3749,6 +4424,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3804,7 +4481,8 @@
             "linkType": "ContentType",
             "id": "project"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/DeYslMi6bV1iug1pKmRZl"
       },
       "fields": {
         "name": {
@@ -3907,6 +4585,8 @@
     {
       "metadata": {
         "tags": [
+        ],
+        "concepts": [
         ]
       },
       "sys": {
@@ -3920,7 +4600,7 @@
         "id": "6vH45BgvPoXp4t5OlYjfr5",
         "type": "Entry",
         "createdAt": "2023-11-04T00:04:57.456Z",
-        "updatedAt": "2023-11-04T00:14:40.740Z",
+        "updatedAt": "2024-02-25T13:16:43.504Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -3928,8 +4608,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2023-11-04T00:14:40.740Z",
+        "publishedVersion": 14,
+        "publishedAt": "2024-02-25T13:16:43.504Z",
         "firstPublishedAt": "2023-11-04T00:06:09.115Z",
         "createdBy": {
           "sys": {
@@ -3945,8 +4625,8 @@
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
         },
-        "publishedCounter": 2,
-        "version": 10,
+        "publishedCounter": 3,
+        "version": 15,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3962,7 +4642,8 @@
             "linkType": "ContentType",
             "id": "footer"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/6vH45BgvPoXp4t5OlYjfr5"
       },
       "fields": {
         "logo": {
@@ -3993,7 +4674,7 @@
           ]
         },
         "ownerDescription": {
-          "es-ES": {
+          "en-GB": {
             "nodeType": "document",
             "data": {
             },
@@ -4005,7 +4686,15 @@
                 "content": [
                   {
                     "nodeType": "text",
-                    "value": "Desarrollado y diseñado por ",
+                    "value": "D",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "eveloped and designed by ",
                     "marks": [
                     ],
                     "data": {
@@ -4025,10 +4714,509 @@
                 ]
               }
             ]
+          },
+          "es-ES": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Desarrollado y diseñado por ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Aarón Velasco López",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
           }
         },
         "slugId": {
           "es-ES": "footer"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "11BgGIlAKt4pELZZy5V2gq",
+        "type": "Entry",
+        "createdAt": "2024-07-15T18:19:20.414Z",
+        "updatedAt": "2024-07-15T19:25:06.542Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 20,
+        "publishedAt": "2024-07-15T19:25:06.542Z",
+        "firstPublishedAt": "2024-07-15T18:27:43.640Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 21,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-GB": "published",
+            "es-ES": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "about"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/11BgGIlAKt4pELZZy5V2gq"
+      },
+      "fields": {
+        "slugId": {
+          "es-ES": "about"
+        },
+        "title": {
+          "en-GB": "About me",
+          "es-ES": "Sobre mi"
+        },
+        "description": {
+          "en-GB": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Computer Engineer | Expert Engineer | Front-end developer | Passionate about technology | Technology and Digital Experience projects | #ThinkTwiceCodeOnce ",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "es-ES": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Ingeniero informático | Expert Engineer | Front-end developer | Apasionado de la tecnología | Proyectos de Tecnología y Experiencia Digital | #ThinkTwiceCodeOnce ",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "experienceTitle": {
+          "en-GB": "Work Experience",
+          "es-ES": "Experiencia"
+        },
+        "curriculum": {
+          "en-GB": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6NudnNhuZLN3HDGeCNaghd"
+            }
+          },
+          "es-ES": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6NudnNhuZLN3HDGeCNaghd"
+            }
+          }
+        },
+        "jobPositions": {
+          "es-ES": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "GHyyAtlOMvjsuzT9Lus23"
+              }
+            }
+          ]
+        },
+        "education": {
+          "es-ES": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6LwxzXaLdWhGfJHBkg1jwG"
+              }
+            }
+          ]
+        },
+        "educationTitle": {
+          "en-GB": "Education",
+          "es-ES": "Estudios"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "6LwxzXaLdWhGfJHBkg1jwG",
+        "type": "Entry",
+        "createdAt": "2024-07-15T18:55:53.288Z",
+        "updatedAt": "2024-07-15T19:15:25.605Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 22,
+        "publishedAt": "2024-07-15T19:15:25.605Z",
+        "firstPublishedAt": "2024-07-15T19:05:27.298Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 23,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-GB": "published",
+            "es-ES": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "experience"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/6LwxzXaLdWhGfJHBkg1jwG"
+      },
+      "fields": {
+        "titlte": {
+          "en-GB": "Degree in Computer Engineering",
+          "es-ES": "Grado Ingeniería Informática"
+        },
+        "time": {
+          "en-GB": "Full time",
+          "es-ES": "Tiempo completo"
+        },
+        "companyName": {
+          "es-ES": "Universidad Rey Juan Carlos"
+        },
+        "location": {
+          "es-ES": "Madrid, España"
+        },
+        "description": {
+          "en-GB": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Degree in Computer Engineering at the Universidad Rey Juan Carlos de Móstoles.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "es-ES": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Grado en Ingeniería Informática en la Universidad Rey Juan Carlos de Móstoles.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "dateFrom": {
+          "en-GB": "2012-07-02",
+          "es-ES": "2013-09-02"
+        },
+        "dateTo": {
+          "en-GB": "2018-06-28",
+          "es-ES": "2017-07-03"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "GHyyAtlOMvjsuzT9Lus23",
+        "type": "Entry",
+        "createdAt": "2024-07-15T19:05:48.009Z",
+        "updatedAt": "2024-07-15T19:16:27.984Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 20,
+        "publishedAt": "2024-07-15T19:16:27.984Z",
+        "firstPublishedAt": "2024-07-15T19:13:35.611Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 21,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-GB": "published",
+            "es-ES": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "experience"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/entries/GHyyAtlOMvjsuzT9Lus23"
+      },
+      "fields": {
+        "titlte": {
+          "en-GB": "Student",
+          "es-ES": "Becario"
+        },
+        "time": {
+          "en-GB": "Partial time",
+          "es-ES": "Tiempo parcial"
+        },
+        "companyName": {
+          "es-ES": "Everis"
+        },
+        "location": {
+          "es-ES": "Madrid, España"
+        },
+        "description": {
+          "en-GB": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Development and maintenance of Sharepoint solutions.\nDevelopment of a Windows service.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "es-ES": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Desarrollo y mantenimiento de soluciones Sharepoint.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Desarrollo de un servicio de Windows.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "dateFrom": {
+          "en-GB": "2017-07-03",
+          "es-ES": "2017-07-03"
+        },
+        "dateTo": {
+          "en-GB": "2018-06-29",
+          "es-ES": "2018-06-29"
         }
       }
     }
@@ -4083,7 +5271,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/0rpylPxiDLskmDsGYfwEG"
       },
       "fields": {
         "title": {
@@ -4157,7 +5346,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/SVqhd1GjCC2fh4JRTve4T"
       },
       "fields": {
         "title": {
@@ -4231,7 +5421,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/2W05F40N5j5JnvR58jJBKR"
       },
       "fields": {
         "title": {
@@ -4305,7 +5496,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/6qnxYYdntXARmi1TXYVxbh"
       },
       "fields": {
         "title": {
@@ -4379,7 +5571,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/4h7dAZ0oefOOId5Dkbg58Y"
       },
       "fields": {
         "title": {
@@ -4453,7 +5646,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/1jwHeLYomjtzwHclQQ0Gko"
       },
       "fields": {
         "title": {
@@ -4527,7 +5721,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/7isRSmRSAIgScQemz33cde"
       },
       "fields": {
         "title": {
@@ -4601,7 +5796,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/4BOVaMlX5VC3qyQfknzWj0"
       },
       "fields": {
         "title": {
@@ -4675,7 +5871,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/2lXYM78mMLDTvivI0A4cz5"
       },
       "fields": {
         "title": {
@@ -4749,7 +5946,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/5bODqgJZwcWC6x8NkYQyen"
       },
       "fields": {
         "title": {
@@ -4823,7 +6021,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/68cC12zU4QUlfxr8TpUojH"
       },
       "fields": {
         "title": {
@@ -4897,7 +6096,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/tu5QL5OhJeuUmJ67uMh4m"
       },
       "fields": {
         "title": {
@@ -4971,7 +6171,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/1eQxkiWbBC1SfoFX8iUCJo"
       },
       "fields": {
         "title": {
@@ -5045,7 +6246,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/1MhsBw8eQXYCOcna3Xcacd"
       },
       "fields": {
         "title": {
@@ -5086,7 +6288,7 @@
         "id": "6O8Z0tEEg0O9MB3XBTEPA4",
         "type": "Asset",
         "createdAt": "2023-08-03T14:15:18.721Z",
-        "updatedAt": "2023-10-28T13:05:48.605Z",
+        "updatedAt": "2024-02-25T13:22:01.926Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -5094,8 +6296,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 14,
-        "publishedAt": "2023-10-28T13:05:48.605Z",
+        "publishedVersion": 17,
+        "publishedAt": "2024-02-25T13:22:01.926Z",
         "firstPublishedAt": "2023-08-03T14:19:27.016Z",
         "createdBy": {
           "sys": {
@@ -5111,21 +6313,24 @@
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
         },
-        "publishedCounter": 2,
-        "version": 15,
+        "publishedCounter": 3,
+        "version": 18,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/6O8Z0tEEg0O9MB3XBTEPA4"
       },
       "fields": {
         "title": {
+          "en-GB": "ACT",
           "es-ES": "ACT"
         },
         "description": {
+          "en-GB": "Catalunya",
           "es-ES": "Catalunya"
         },
         "file": {
@@ -5193,7 +6398,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/5MdAHxS30lioCQcHBln3rJ"
       },
       "fields": {
         "title": {
@@ -5267,7 +6473,8 @@
             "linkType": "User",
             "id": "5qAcj2ETIFnuKxy59myqF2"
           }
-        }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/559yR09ARnZKBTx5ijRn2x"
       },
       "fields": {
         "title": {
@@ -5302,6 +6509,92 @@
             },
             "fileName": "banca_march_copia.jpg",
             "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "yoaw30xvr8ys"
+          }
+        },
+        "id": "6NudnNhuZLN3HDGeCNaghd",
+        "type": "Asset",
+        "createdAt": "2024-07-15T18:23:24.702Z",
+        "updatedAt": "2024-07-15T18:25:48.528Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2024-07-15T18:25:48.528Z",
+        "firstPublishedAt": "2024-07-15T18:25:48.528Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "5qAcj2ETIFnuKxy59myqF2"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-GB": "published",
+            "es-ES": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/yoaw30xvr8ys/environments/master/assets/6NudnNhuZLN3HDGeCNaghd"
+      },
+      "fields": {
+        "title": {
+          "en-GB": "Curriculum",
+          "es-ES": "Curriculum"
+        },
+        "description": {
+          "es-ES": ""
+        },
+        "file": {
+          "en-GB": {
+            "url": "//assets.ctfassets.net/yoaw30xvr8ys/6NudnNhuZLN3HDGeCNaghd/806cb9860f964ff7c34d3f70b14b3ce0/Prueba_en.pdf",
+            "details": {
+              "size": 14080
+            },
+            "fileName": "Prueba_en.pdf",
+            "contentType": "application/pdf"
+          },
+          "es-ES": {
+            "url": "//assets.ctfassets.net/yoaw30xvr8ys/6NudnNhuZLN3HDGeCNaghd/dd897f3e56d7223df68004e1819ff11f/Prueba.pdf",
+            "details": {
+              "size": 14339
+            },
+            "fileName": "Prueba.pdf",
+            "contentType": "application/pdf"
           }
         }
       }

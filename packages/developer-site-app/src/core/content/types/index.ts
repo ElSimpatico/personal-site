@@ -1,3 +1,5 @@
+export type { TypeAbout, TypeAboutFields } from "./TypeAbout";
+export type { TypeExperience, TypeExperienceFields } from "./TypeExperience";
 export type { TypeFooter, TypeFooterFields } from "./TypeFooter";
 export type { TypeHeader, TypeHeaderFields } from "./TypeHeader";
 export type { TypeHome, TypeHomeFields } from "./TypeHome";
